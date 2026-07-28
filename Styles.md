@@ -101,6 +101,8 @@ A comprehensive collection of genre fusion styles for Suno AI music generation.
 - Algorave
 - Hypnagogic
 - Illbient
+- Industrial
+- Industrial Techno
 
 ## Hip Hop & Trap Styles
 
@@ -111,6 +113,7 @@ A comprehensive collection of genre fusion styles for Suno AI music generation.
 - Boom Bap
 - Dirty South
 - Crunk
+- Funk
 - G-Funk
 - P-Funk
 - Drill
@@ -147,6 +150,7 @@ A comprehensive collection of genre fusion styles for Suno AI music generation.
 ## Rock & Alternative Styles
 
 - Rock
+- Pop Rock
 - Alternative Rock
 - Indie Rock
 - Garage Rock
@@ -194,6 +198,8 @@ A comprehensive collection of genre fusion styles for Suno AI music generation.
 - Singer-Songwriter
 
 ## World & Regional Styles
+
+⚠️ Most entries below are low-confidence genres for Suno — training data skews heavily toward Global North genres/instruments, so results here are approximations rather than authentic recreations. Expect to iterate more. See "Genre Confidence Tiers" in SUNO-AI-AGENT-GUIDE.md.
 
 ### Latin & Caribbean
 - Samba

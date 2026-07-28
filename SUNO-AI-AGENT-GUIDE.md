@@ -4,6 +4,8 @@
 
 **Version:** Suno v5 (December 2025)
 
+**⚠️ Source reliability:** This guide is compiled from community testing, blog posts, and inference — not Suno's official documentation or engineers. Nobody outside Suno actually knows the model internals; claims here about *why* something works (tag processing, weighting, what the Exclude field does mechanically) are best guesses inferred from observed behavior, not confirmed architecture. Treat every claim as a hypothesis to test against your own generations, not a fact. When something in here contradicts what you're actually hearing back from Suno, trust the audio over the doc — and update the doc.
+
 ---
 
 ## Core Prompt Formula
@@ -93,9 +95,15 @@ Melancholic indie pop, acoustic guitar, female lead, clean mix, mid-tempo 96 BPM
 ### Avoid
 - ❌ Vague prompts: "make a pop song"
 - ❌ Overloaded prompts: too many conflicting descriptors (3+ genres)
-- ❌ Artist names: use musical descriptors instead
+- ⚠️ Artist names: conventional wisdom says use musical descriptors instead — but directly observed counterevidence exists (see below), so treat this as "usually safer to avoid," not an absolute rule
 - ❌ Missing vocal specification
 - ❌ Too complex: brand names, specific gear models
+
+**Counterevidence on artist names:** a real generation for this project named "Rockwell" and "Jackson" as vocal references (talk-sung verse / falsetto melodic hook) alongside a synth-pop instrument list, and the result was a genre swap toward funk-pop with falsetto and slap bass — plausibly the model leaning on Michael Jackson's actual catalog — and the user kept and liked the result ("worked like a champ"). So artist names clearly *do* pull the model toward that artist's real sound, strongly enough to override other descriptors in the same prompt. Whether that's desirable depends entirely on whether you want that specific gravitational pull or want the prompt's other descriptors to win. Use deliberately, not accidentally.
+
+**Copyright filter risk:** artist names can also get a generation blocked outright if the name is flagged as copyright-protected — and this is inconsistent, not a reliable block list (same or similar names sometimes pass, sometimes don't; user-reported "sometimes it works, sometimes not"). Treat naming an artist as a gamble with two independent failure modes — it might not block but drift the genre unpredictably, or it might just refuse to generate — not a technique to depend on for anything you need to land reliably.
+
+**Intentional misspelling workaround:** user-reported technique — deliberately misspelling the artist name (hoping the filter matches on exact/near-exact spelling while the model still resolves the misspelling to the same artist association) to dodge the copyright block. Reliability is unconfirmed/inconsistent; documented here as an observed practice, not a guaranteed method. If the filter is doing fuzzy/phonetic matching rather than exact-string matching, this may stop working at any time.
 
 ---
 
@@ -264,14 +272,19 @@ Numbers = target bar counts
 
 ## Negative Prompting (Exclusions)
 
-v5 handles negative prompting more reliably than v4.5.
+**Reportedly** the Exclude field works better than the Style field for exclusions — this is community-reported, not confirmed by Suno. Multiple sources claim negative instructions written into the Style field ("no drums", "no vocals") are unreliable, and that the **Exclude field under Advanced Options** is the more dependable place for unwanted instruments/elements. Worth A/B testing yourself before fully trusting it.
 
-### Effective Syntax
+### Instrumental Tracks (No Vocals)
+There is no dedicated `[no vocals]` meta tag, and "no vocals" in the Style field is unreliable. The dependable combination:
+1. Toggle **Instrumental** on in Custom Mode
+2. Add `[Instrumental]` in the Lyrics field (or `[Instrumental Break]` for a vocal-free section inside a song that otherwise has vocals)
+3. Put `vocals` in the **Exclude field**
+
+### Effective Syntax (Style field — positive framing still works well)
 ```
-"Instrumental only, no vocals"
-"Upbeat pop with drums and bass, no guitars"
-"Trap beat with piano and synths, no 808s"
-"Acoustic guitar focus, no distortion, clear vocals"
+"Upbeat pop with drums and bass" + Exclude: guitars
+"Trap beat with piano and synths" + Exclude: 808s
+"Acoustic guitar focus, clear vocals" + Exclude: distortion
 ```
 
 ### Ineffective Syntax
@@ -279,13 +292,14 @@ v5 handles negative prompting more reliably than v4.5.
 ❌ "Without singing unless background only"
 ❌ "No sounds that are bad"
 ❌ "Not like rock"
+❌ Relying on Style-field "no X" phrasing for anything you actually need excluded
 ```
 
 ### Common Uses
-- Pure instrumental: `"no vocals"` or `"instrumental only"`
-- Remove instrument: `"no electric guitar"` (keeps other guitars)
-- Clear mix: `"no synth pads"` (reduces midrange clutter)
-- Precision stacking: `"no lead guitar solo"` (keeps rhythm guitars)
+- Pure instrumental: Instrumental toggle + `[Instrumental]` tag + Exclude field (see above) — do not rely on "no vocals" text alone
+- Remove instrument: Exclude field, `"electric guitar"` (keeps other guitars)
+- Clear mix: Exclude field, `"synth pads"` (reduces midrange clutter)
+- Precision stacking: Exclude field, `"lead guitar solo"` (keeps rhythm guitars)
 
 ### Troubleshooting Negatives
 ```
@@ -479,15 +493,29 @@ Meta tags are keyword markers that steer structure, style, and production. Most 
 [Chorus] / [Chorus x2] - Main hook / emotional core
 [Post-Chorus] - After chorus section
 [Bridge] - Contrast / pivot
-[Drop] - Beat-driven instrumental focus
+[Breakdown] - Stripped-back section, reduced instrumentation, creates space
+[Build] / [Build-Up] - Progressive intensity increase (common in EDM)
+[Drop] - Beat-driven instrumental focus, max instrumentation, follows a Build
 [Hook] - Catchy part emphasis
+[Interlude] - Instrumental break connecting sections, palette cleanser
 [Break] / [Instrumental Break] - Break in the song
 [Solo Section] - Featured instrument spotlight
 [Outro] - Closure or fade-out
 [Fade Out] / [Fade In] - Volume transitions
+[End] - Hard stop; signals the song should end (prevents trailing audio)
 ```
 
+**Note:** Tags are case-insensitive (`[VERSE]`, `[Verse]`, `[verse]` are equivalent).
+
 ### Vocal Tags
+
+**Avoiding the generic "Suno voice":** a bare "male vocal" or "female vocal" tag with one adjective tends to produce Suno's default timbre, recognizable across many different songs. Stack 2-3 specific descriptors (tone + technique/texture + style) to get something distinctive:
+```
+Raspy male vocals with subtle vibrato, lo-fi warmth
+Ethereal female vocals, breathy and reverb-heavy, choir harmonies
+Deep baritone, smooth jazz delivery, minimal processing
+```
+For per-section control (e.g. a chorus that needs to sound markedly different from the verse), use [Parameterized Metatags](#parameterized-metatags-colon-syntax) instead of only setting this once in the Style field.
 
 **Vocal Type:**
 ```
@@ -919,6 +947,7 @@ Specific: [90 BPM], [120 BPM], etc.
 [6/8 Time] - Compound duple
 [5/4 Time] / [7/8 Time] - Odd meters
 ```
+⚠️ **Reportedly unreliable at generation time.** Community reports suggest time signature is primarily an editing-surface control (Studio grid + metronome after generation), not a generation-time directive — but nobody outside Suno has confirmed the actual mechanism. If an odd-meter track matters, verify with your own test generations rather than assuming the tag does nothing.
 
 ### Harmony & Chord Tags
 
@@ -1118,6 +1147,73 @@ Stay with me until the morning light (belt, powerful)
 We'll rewrite every lost goodnight (stacked harmonies)
 ```
 
+### Learning From Suno's Own Output (Audio Upload → Auto-Caption)
+
+**✅ Confidence note: unlike most of this guide, this section is based on directly observed Suno output, not a third-party claim.** Uploading an instrumental track (in this case an SNES-era game soundtrack, industrial/techno character) and letting Suno auto-generate its own style + lyric fields from the audio produced real first-party examples of how the model describes itself:
+
+**Style field — dense technical prose, not a keyword list:**
+```
+Industrial techno with a focus on rhythmic noise and mechanical textures. A distorted, resonant kick drum provides a steady 4/4 pulse at 130 BPM in the key of C minor. A metallic, high-frequency percussion loop with a short decay repeats every sixteenth note, creating a constant abrasive texture. A low-pass filtered synth sequence with high resonance oscillates in a rhythmic pattern, shifting its cutoff frequency to create movement. A sharp, white-noise-based snare hits on the backbeat with a long, gated reverb tail. Occasional industrial sound effects, resembling clanging metal and steam releases, are processed with heavy distortion and delay. The arrangement is minimalist, focusing on the gradual layering and filtering of these percussive elements.
+```
+
+**Lyric field — sequential event tags under generic section labels, not Verse/Chorus:**
+```
+[Instrumental][Intro][distorted resonant kick drum, 4/4 pulse][metallic high-frequency percussion loop enters]
+[Section A][low-pass filtered synth sequence with high resonance][white-noise snare with gated reverb on backbeat]
+[Section B][industrial clanging sound effects with delay][increased distortion on kick drum][synth cutoff frequency modulation]
+```
+
+**Two takeaways that update the guide's own rules for this use case:**
+1. The "15-30 words / 4-7 descriptors" style-field rule earlier in this guide is aimed at prompts you write from scratch. For dense production/instrumental description, Suno's own captioning goes far more verbose and technical — full sentences describing decay, resonance, filter movement — and that density is evidently something the model can parse and reproduce, not noise to avoid.
+2. Arrangement doesn't have to be tagged as named sections (`[Verse]`/`[Chorus]`) with lyric content inside. It can instead be a sequence of short, standalone event tags (`[metallic high-frequency percussion loop enters]`) stacked one after another under generic labels (`[Section A]`, `[Section B]`) — describing *what happens moment-to-moment* rather than *what kind of section this is*. Useful for instrumental passages (intros, breaks, outros) inside otherwise vocal tracks.
+
+**Practical use:** if you have a reference track (game soundtrack, old demo, found sound) whose texture you want to study or reuse, upload it and read back what Suno itself calls the elements — its own vocabulary for a sound is more reliable than guessing at descriptors from outside.
+
+### Round-Trip Debugging (Diagnosing Style/Lyric Prompt Drift)
+
+A way to test whether your prompt actually landed, using the same audio-upload-to-caption behavior above:
+
+1. **Generate** a track from your style + lyrics prompt as normal.
+2. **Download** the resulting audio.
+3. **Re-upload** that same audio back into Suno and let it auto-generate a fresh style/lyric caption from what it actually produced.
+4. **Diff the re-caption against your original prompt**, line by line.
+
+What the diff tells you:
+- **Descriptor present in your prompt, absent from the re-caption** → that element likely didn't survive generation (drowned out, deprioritized, or ignored). Candidate fixes: move it earlier in the prompt (early words are weighted more heavily), make it more specific, raise Style Influence, or drop it if it's consistently getting lost.
+- **Descriptor in the re-caption that you never asked for** → shows you what Suno defaulted to filling the gap with. Useful for spotting exactly where "generic Suno voice" (or generic anything) crept in versus your original intent.
+- **Vocal specifically:** if you asked for a distinctive vocal texture and the re-caption describes it only in generic terms ("male vocal"), that's fairly strong evidence the voice actually rendered as default/generic rather than it being a matter of ear/perception.
+
+This is the most direct debugging tool available for prompt adherence, since it's Suno grading its own output against your input rather than you guessing from the outside.
+
+**Non-determinism caveat:** since the same prompt produces a different result on every generation, a single re-caption only diagnoses *that specific take*, not the prompt in general. A missing descriptor might mean the prompt reliably drops it, or might just be one unlucky roll. Real-world workflow on this project: generate the same unchanged prompt 3 times before touching anything, since 3 takes already shows whether an element is consistently missing (drop across all 3) versus just unlucky (present in some, absent in others). If a diff result matters enough to act on, round-trip more than one of those takes before concluding the prompt itself is the problem.
+
+**Case study — reusing a shared instrument/artist reference across tracks:** for this project, an instrument list originally written to describe the album's sonic-ancestor reference track (Rockwell ft. Michael Jackson, "Somebody's Watching Me" — including "Lead vocal (Rockwell — talk-sung verses)", "Chorus vocal (Jackson — melodic hook)") was **deliberately** reused as the base style input for a different track ("Would You Stay If You Could Go"), rather than writing a fresh instrument list for it. Round-trip debugging that generation showed the genre swapped from the intended cold/clinical paranoid-synth-pop toward funk-pop with falsetto and slap bass — plausibly the artist names pulling toward Michael Jackson's real catalog and overriding the rest of the shared instrument list. The user liked and kept the result.
+
+**Takeaway:** reusing a shared base instrument list across tracks for sonic-family cohesion is a reasonable technique, but if that shared list carries artist-name vocal references, treat those names as an active, competing force on the outcome — not neutral shared DNA. They can pull a reused-list generation toward the referenced artist's actual sound regardless of what else is in the list, for better (as here) or worse. Decide per-track whether you want that pull or want to swap the artist reference for a fresh musical descriptor before reusing the list.
+
+### Parameterized Metatags (Colon Syntax)
+
+The most reliable way to give a single section unique instrumentation or vocal character without changing the global Style field: add descriptors after a colon inside the bracket tag.
+
+```
+[Verse: whispered vocals, acoustic guitar only]
+Walking through the morning mist
+The world still sleeping, still
+
+[Chorus: full band, powerful vocals]
+But I'm awake, I'm alive
+And every sound is a sign
+```
+
+**Why this matters for vocal distinctiveness:** stacking a generic "male vocal" / "female vocal" tag with only one adjective in the Style field tends to produce Suno's default vocal timbre — the same voice shows up across many songs. Parameterized section tags let you stack 2-3 unusual, specific descriptors per section instead:
+
+```
+[Verse: gritty, slightly nasal male vocal, worn and weathered grain]
+[Chorus: cracked upper register on the belt, raspy and imperfect]
+```
+
+This combines with — doesn't replace — the dash-style descriptive headers already used in this guide's lyric examples (`[Verse 1 - Introspective, Gentle]`); colon syntax is the more precisely-controlled form when a section's vocal character needs to diverge sharply from the rest of the song.
+
 ### Spoken Word & Theatrical Elements
 
 For creative/experimental tracks:
@@ -1151,6 +1247,18 @@ Every emotion starts as code
 
 **Ineffective:**
 - "Funk Jazz Reggae Drumstep Gospel" (too many)
+
+### Genre Confidence Tiers
+
+Nobody outside Suno actually knows the training data composition or model internals — the tiers below are inferred by outside observers from output consistency, not published by Suno. Treat as "commonly reported difficulty," not measured fact. Genre accuracy anecdotally tracks toward Global North genres (guitar/piano/drums-heavy) over regional/non-Western ones. Pick descriptors with this in mind, especially for anything pulled from Styles.md's World & Regional section — and expect this table itself to need correction as you generate.
+
+**High-confidence (reliable):** pop, synth-pop, indie pop, dream pop, rock, indie rock, alt-rock, punk rock, hip-hop, trap, boom bap, lo-fi hip-hop, EDM, house, techno, trance, drum and bass, R&B, neo-soul, country, folk, indie folk, Americana, jazz, swing, bebop
+
+**Medium-confidence (usable, expect to iterate):** metal (extreme vocals — growls/screams — are hit-or-miss), classical/orchestral (complex counterpoint is weak), reggaeton, salsa, bossa nova, cumbia, bachata, afrobeats, afropop, K-pop, J-pop, city pop
+
+**Low-confidence (requires heavy iteration, approximate results):** avant-garde/experimental/noise, non-Western traditional forms (gamelan, raga, Tuvan throat singing, and most of Styles.md's African/Middle Eastern/Asian regional entries), pure sound design/ambient drone (Suno optimizes for song structure, not soundscape)
+
+**How to apply:** for a low-confidence genre fusion, budget for more generations and treat the result as "inspired by" rather than an authentic recreation — don't chase precision the training data can't support.
 
 ### BPM Guidelines by Genre
 
@@ -1548,6 +1656,30 @@ Replace with phonetic spellings if needed
 
 ---
 
+## Title Suggestions (Always Include)
+
+Every prompt/lyric response must end with a list of 5–8 suggested song titles that match the mood, genre, and narrative of the track. Mark one as the recommended pick with a short reason.
+
+**Format:**
+```
+**Suggested Titles:**
+- Title One
+- Title Two
+- Title Three
+- Title Four
+- Title Five
+
+**Pick:** *Title Two* — brief reason.
+```
+
+**Rules:**
+- Titles should be evocative, not generic (avoid "The Song", "Untitled")
+- Match register: a trap song and a cinematic score need different title styles
+- Prefer specific, image-rich phrasing over abstract words
+- 1–5 words each works best
+
+---
+
 ## Key Principles for AI Agents (v5)
 
 1. **Always ask clarifying questions** if genre, mood, or vocal type unclear
@@ -1564,7 +1696,7 @@ Replace with phonetic spellings if needed
 12. **For uploads:** State BPM/key explicitly; set Audio Influence appropriately
 13. **Multilingual:** One language per section; add "no English" if needed
 14. **Export strategy:** Fix arrangement in Suno, tone/EQ in DAW
-15. **Iterate:** Generate 2-3 versions, pick best, refine
+15. **Iterate:** Suno is non-deterministic — the same prompt produces different results each time. Real-world workflow on this project: generate the *same unchanged prompt* 3 times first to sample the variance before touching anything, then start making small tweaks if none of those 3 land — landing a take that actually works often takes 5-10 generations total between the unchanged batch and the tweaked follow-ups. Don't conclude a prompt "doesn't work" from a single generation, or even from one changed variant — the prompt is only one input; the roll is the other.
 
 ---
 
@@ -1577,6 +1709,6 @@ Replace with phonetic spellings if needed
 - **Lock-first workflow:** Perfect the chorus, then build around it
 - **Production quality matters:** Always include quality descriptors for consistency
 - **Iterate fast:** Test variations, use sliders strategically
-- **Generate multiple takes:** 2-3 versions, pick best, refine in Song Editor
+- **Generate multiple takes:** non-deterministic model — expect 5-10 generations per track to land the one that actually works, not 2-3; pick best, refine in Song Editor
 
 This guide prioritizes actionable prompt construction and v5 production workflows. Focus on helping users craft precise, effective prompts, leverage v5 features, and achieve professional results.
