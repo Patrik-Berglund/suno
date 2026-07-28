@@ -1,8 +1,8 @@
-# Suno AI Agent Guide: Prompt Crafting & Lyric Writing (v5)
+# Suno AI Agent Guide: Prompt Crafting & Lyric Writing (v5.5)
 
-**Purpose:** This guide is for AI assistants helping users craft Suno v5 prompts and write lyrics. Focus on actionable prompt construction and production workflows.
+**Purpose:** This guide is for AI assistants helping users craft Suno v5.5 prompts and write lyrics. Focus on actionable prompt construction and production workflows.
 
-**Version:** Suno v5 (December 2025)
+**Version:** Suno v5.5
 
 **⚠️ Source reliability:** This guide is compiled from community testing, blog posts, and inference — not Suno's official documentation or engineers. Nobody outside Suno actually knows the model internals; claims here about *why* something works (tag processing, weighting, what the Exclude field does mechanically) are best guesses inferred from observed behavior, not confirmed architecture. Treat every claim as a hypothesis to test against your own generations, not a fact. When something in here contradicts what you're actually hearing back from Suno, trust the audio over the doc — and update the doc.
 
@@ -41,27 +41,6 @@ Melancholic indie pop, acoustic guitar, female lead, clean mix, mid-tempo 96 BPM
 
 ---
 
-## v5 Improvements Over v4.5
-
-**Audio Quality:**
-- 44.1 kHz, 16-bit stereo (studio-grade)
-- Clearer mix separation, tighter low end
-- Up to 8 minutes lossless audio (paid plans)
-- Multi-stem export: Free (MP3 mix), Pro (2-stem), Premier (up to 12 stems)
-
-**Prompt Understanding:**
-- Better syllable-to-beat mapping
-- Longer context window (less cutoff/drift)
-- Improved pronunciation and phoneme rendering
-- More reliable section obedience
-
-**Creative Control:**
-- Weirdness, Style Influence, Audio Influence sliders
-- Song Editor: Remake, Rewrite, Extend, Reorder, Delete sections
-- Audio uploads with role control (featured vs texture)
-
----
-
 ## Prompt Construction Rules
 
 ### Always Include
@@ -95,19 +74,13 @@ Melancholic indie pop, acoustic guitar, female lead, clean mix, mid-tempo 96 BPM
 ### Avoid
 - ❌ Vague prompts: "make a pop song"
 - ❌ Overloaded prompts: too many conflicting descriptors (3+ genres)
-- ⚠️ Artist names: conventional wisdom says use musical descriptors instead — but directly observed counterevidence exists (see below), so treat this as "usually safer to avoid," not an absolute rule
+- ⚠️ Artist names: can pull generation strongly toward that artist's real catalog, overriding other descriptors in the same prompt — including in a reused instrument/style list not written with that artist in mind. Sometimes desirable, sometimes not — use deliberately, decide per-track. Also risks an outright generation block for copyright-flagged names (inconsistent, not a reliable list); intentionally misspelling the name is an unconfirmed workaround for that block, may stop working without notice
 - ❌ Missing vocal specification
 - ❌ Too complex: brand names, specific gear models
 
-**Counterevidence on artist names:** a real generation for this project named "Rockwell" and "Jackson" as vocal references (talk-sung verse / falsetto melodic hook) alongside a synth-pop instrument list, and the result was a genre swap toward funk-pop with falsetto and slap bass — plausibly the model leaning on Michael Jackson's actual catalog — and the user kept and liked the result ("worked like a champ"). So artist names clearly *do* pull the model toward that artist's real sound, strongly enough to override other descriptors in the same prompt. Whether that's desirable depends entirely on whether you want that specific gravitational pull or want the prompt's other descriptors to win. Use deliberately, not accidentally.
-
-**Copyright filter risk:** artist names can also get a generation blocked outright if the name is flagged as copyright-protected — and this is inconsistent, not a reliable block list (same or similar names sometimes pass, sometimes don't; user-reported "sometimes it works, sometimes not"). Treat naming an artist as a gamble with two independent failure modes — it might not block but drift the genre unpredictably, or it might just refuse to generate — not a technique to depend on for anything you need to land reliably.
-
-**Intentional misspelling workaround:** user-reported technique — deliberately misspelling the artist name (hoping the filter matches on exact/near-exact spelling while the model still resolves the misspelling to the same artist association) to dodge the copyright block. Reliability is unconfirmed/inconsistent; documented here as an observed practice, not a guaranteed method. If the filter is doing fuzzy/phonetic matching rather than exact-string matching, this may stop working at any time.
-
 ---
 
-## Creative Control Sliders (v5)
+## Creative Control Sliders
 
 ### Weirdness (Safe → Chaos)
 ~50% = normal baseline
@@ -149,7 +122,7 @@ Appears when audio is uploaded
 
 ---
 
-## Audio Upload Workflow (v5)
+## Audio Upload Workflow
 
 ### Prepare Audio
 1. Export clean mono/stereo WAV at 44.1kHz
@@ -194,7 +167,7 @@ Guide arrangement with section tags:
 
 ---
 
-## Song Editor Workflow (v5)
+## Song Editor Workflow
 
 The Song Editor allows section-level control without re-rolling the entire track.
 
@@ -248,7 +221,7 @@ Numbers = target bar counts
 
 ---
 
-## Stem Export Strategy (v5)
+## Stem Export Strategy
 
 ### Export Tiers
 - **Free:** MP3 full mix only
@@ -314,7 +287,7 @@ Mix feels too empty?
 
 ---
 
-## Multilingual & Pronunciation (v5)
+## Multilingual & Pronunciation
 
 ### Non-English Best Practices
 - Keep prompts simple: "Emotional ballad in Spanish, piano and strings"
@@ -1149,47 +1122,25 @@ We'll rewrite every lost goodnight (stacked harmonies)
 
 ### Learning From Suno's Own Output (Audio Upload → Auto-Caption)
 
-**✅ Confidence note: unlike most of this guide, this section is based on directly observed Suno output, not a third-party claim.** Uploading an instrumental track (in this case an SNES-era game soundtrack, industrial/techno character) and letting Suno auto-generate its own style + lyric fields from the audio produced real first-party examples of how the model describes itself:
+Uploading a reference track (game soundtrack, old demo, found sound, or one of your own past generations) lets Suno auto-generate its own style + lyric caption from the audio. Read back what it calls the elements — its own vocabulary for a sound is more reliable than guessing descriptors from outside.
 
-**Style field — dense technical prose, not a keyword list:**
-```
-Industrial techno with a focus on rhythmic noise and mechanical textures. A distorted, resonant kick drum provides a steady 4/4 pulse at 130 BPM in the key of C minor. A metallic, high-frequency percussion loop with a short decay repeats every sixteenth note, creating a constant abrasive texture. A low-pass filtered synth sequence with high resonance oscillates in a rhythmic pattern, shifting its cutoff frequency to create movement. A sharp, white-noise-based snare hits on the backbeat with a long, gated reverb tail. Occasional industrial sound effects, resembling clanging metal and steam releases, are processed with heavy distortion and delay. The arrangement is minimalist, focusing on the gradual layering and filtering of these percussive elements.
-```
-
-**Lyric field — sequential event tags under generic section labels, not Verse/Chorus:**
-```
-[Instrumental][Intro][distorted resonant kick drum, 4/4 pulse][metallic high-frequency percussion loop enters]
-[Section A][low-pass filtered synth sequence with high resonance][white-noise snare with gated reverb on backbeat]
-[Section B][industrial clanging sound effects with delay][increased distortion on kick drum][synth cutoff frequency modulation]
-```
-
-**Two takeaways that update the guide's own rules for this use case:**
-1. The "15-30 words / 4-7 descriptors" style-field rule earlier in this guide is aimed at prompts you write from scratch. For dense production/instrumental description, Suno's own captioning goes far more verbose and technical — full sentences describing decay, resonance, filter movement — and that density is evidently something the model can parse and reproduce, not noise to avoid.
-2. Arrangement doesn't have to be tagged as named sections (`[Verse]`/`[Chorus]`) with lyric content inside. It can instead be a sequence of short, standalone event tags (`[metallic high-frequency percussion loop enters]`) stacked one after another under generic labels (`[Section A]`, `[Section B]`) — describing *what happens moment-to-moment* rather than *what kind of section this is*. Useful for instrumental passages (intros, breaks, outros) inside otherwise vocal tracks.
-
-**Practical use:** if you have a reference track (game soundtrack, old demo, found sound) whose texture you want to study or reuse, upload it and read back what Suno itself calls the elements — its own vocabulary for a sound is more reliable than guessing at descriptors from outside.
+Two format notes for writing prompts around this:
+- For dense production/instrumental material, the style field can be full technical prose (decay, resonance, filter movement), not just a short keyword list — denser than the 15-30 word rule elsewhere in this guide, and the model can parse it back.
+- Instrumental arrangement doesn't need named sections. It can be a sequence of short, standalone event tags under generic labels instead of `[Verse]`/`[Chorus]`, e.g. `[Section A][distorted resonant kick drum, 4/4 pulse][metallic percussion loop enters]` — describing what happens moment-to-moment rather than what kind of section it is. Useful for instrumental intros/breaks/outros inside otherwise vocal tracks.
 
 ### Round-Trip Debugging (Diagnosing Style/Lyric Prompt Drift)
 
-A way to test whether your prompt actually landed, using the same audio-upload-to-caption behavior above:
+To check whether a prompt actually landed: **generate** → **download** the audio → **re-upload** it back into Suno → **diff** the fresh auto-caption against your original prompt, line by line.
 
-1. **Generate** a track from your style + lyrics prompt as normal.
-2. **Download** the resulting audio.
-3. **Re-upload** that same audio back into Suno and let it auto-generate a fresh style/lyric caption from what it actually produced.
-4. **Diff the re-caption against your original prompt**, line by line.
+Reading the diff:
+- Descriptor in your prompt, missing from the re-caption → likely didn't survive generation. Try moving it earlier in the prompt (early words weight more heavily), making it more specific, raising Style Influence, or dropping it if it's consistently lost.
+- Descriptor in the re-caption you never asked for → shows what Suno defaulted to filling the gap with.
+- Generic vocal wording in the re-caption ("male vocal," no texture) → the voice rendered as default/generic; not just a matter of your perception.
+- Numbers/keys in the re-caption (BPM, key) are stated as flat fact even when your original prompt never specified them — don't assume a number in a re-caption was actually in your input; check line by line.
 
-What the diff tells you:
-- **Descriptor present in your prompt, absent from the re-caption** → that element likely didn't survive generation (drowned out, deprioritized, or ignored). Candidate fixes: move it earlier in the prompt (early words are weighted more heavily), make it more specific, raise Style Influence, or drop it if it's consistently getting lost.
-- **Descriptor in the re-caption that you never asked for** → shows you what Suno defaulted to filling the gap with. Useful for spotting exactly where "generic Suno voice" (or generic anything) crept in versus your original intent.
-- **Vocal specifically:** if you asked for a distinctive vocal texture and the re-caption describes it only in generic terms ("male vocal"), that's fairly strong evidence the voice actually rendered as default/generic rather than it being a matter of ear/perception.
+**Non-determinism:** one re-caption only diagnoses that one take, not the prompt in general. Generate the same unchanged prompt 3 times before touching anything — 3 takes tells "consistently missing" apart from "one unlucky roll." Budget 5-10 generations total (3 unchanged + tweaks) before concluding a prompt does or doesn't work.
 
-This is the most direct debugging tool available for prompt adherence, since it's Suno grading its own output against your input rather than you guessing from the outside.
-
-**Non-determinism caveat:** since the same prompt produces a different result on every generation, a single re-caption only diagnoses *that specific take*, not the prompt in general. A missing descriptor might mean the prompt reliably drops it, or might just be one unlucky roll. Real-world workflow on this project: generate the same unchanged prompt 3 times before touching anything, since 3 takes already shows whether an element is consistently missing (drop across all 3) versus just unlucky (present in some, absent in others). If a diff result matters enough to act on, round-trip more than one of those takes before concluding the prompt itself is the problem.
-
-**Case study — reusing a shared instrument/artist reference across tracks:** for this project, an instrument list originally written to describe the album's sonic-ancestor reference track (Rockwell ft. Michael Jackson, "Somebody's Watching Me" — including "Lead vocal (Rockwell — talk-sung verses)", "Chorus vocal (Jackson — melodic hook)") was **deliberately** reused as the base style input for a different track ("Would You Stay If You Could Go"), rather than writing a fresh instrument list for it. Round-trip debugging that generation showed the genre swapped from the intended cold/clinical paranoid-synth-pop toward funk-pop with falsetto and slap bass — plausibly the artist names pulling toward Michael Jackson's real catalog and overriding the rest of the shared instrument list. The user liked and kept the result.
-
-**Takeaway:** reusing a shared base instrument list across tracks for sonic-family cohesion is a reasonable technique, but if that shared list carries artist-name vocal references, treat those names as an active, competing force on the outcome — not neutral shared DNA. They can pull a reused-list generation toward the referenced artist's actual sound regardless of what else is in the list, for better (as here) or worse. Decide per-track whether you want that pull or want to swap the artist reference for a fresh musical descriptor before reusing the list.
+**Reused style/instrument lists:** if a base list carrying artist-name vocal references gets reused across tracks for sonic-family cohesion, treat those artist names as an active competing force on the outcome, not neutral shared DNA — they can pull toward that artist's real sound regardless of the rest of the list. Decide per track whether to keep that pull or swap in a fresh musical descriptor.
 
 ### Parameterized Metatags (Colon Syntax)
 
@@ -1577,7 +1528,7 @@ Replace with phonetic spellings if needed
 - [ ] Lyrics: checked for homographs
 - [ ] Sliders set for section type
 
-### Pre-Export QA (v5)
+### Pre-Export QA
 - [ ] Chorus repeats identically; no drift
 - [ ] Verse intelligible in mono
 - [ ] Transitions smooth; tails extended where needed
@@ -1680,7 +1631,7 @@ Every prompt/lyric response must end with a list of 5–8 suggested song titles 
 
 ---
 
-## Key Principles for AI Agents (v5)
+## Key Principles for AI Agents
 
 1. **Always ask clarifying questions** if genre, mood, or vocal type unclear
 2. **Start with the formula:** Genre + Mood + Tempo + Instruments + Vocals + Production Quality

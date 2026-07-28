@@ -1,13 +1,6 @@
 # Suno Style Reference Library
 
-A comprehensive collection of genre fusion styles for Suno AI music generation.
-
-## How to Use This Reference
-
-- Pick 1-2 genres maximum for best results
-- Combine with specific instruments, tempo, and production descriptors
-- Use as inspiration for unique genre fusions
-- Remember: simpler prompts often work better than complex multi-genre combinations
+A comprehensive collection of genre fusion styles for Suno AI music generation. Used together with SUNO-AI-AGENT-GUIDE.md, which covers how to combine and prompt with these.
 
 ---
 
@@ -199,8 +192,6 @@ A comprehensive collection of genre fusion styles for Suno AI music generation.
 
 ## World & Regional Styles
 
-⚠️ Most entries below are low-confidence genres for Suno — training data skews heavily toward Global North genres/instruments, so results here are approximations rather than authentic recreations. Expect to iterate more. See "Genre Confidence Tiers" in SUNO-AI-AGENT-GUIDE.md.
-
 ### Latin & Caribbean
 - Samba
 - Bossa Nova
@@ -355,27 +346,3 @@ A comprehensive collection of genre fusion styles for Suno AI music generation.
 - Dirty South Boom Bap
 - Gospel Shoegaze
 
----
-
-## Tips for Using Genre Fusions
-
-1. **Keep it simple**: 1-2 genres work best
-2. **Primary genre first**: Suno weights early words more heavily
-3. **Add specifics**: Tempo, instruments, vocals, production quality
-4. **Avoid conflicts**: Don't mix too many opposing styles
-5. **Use negative prompting**: Exclude unwanted elements explicitly
-
-## Example Prompt Structure
-
-```
-[Primary Genre] + [Secondary Genre], [Mood], [Tempo], [Key Instruments], [Vocal Type], [Production Quality]
-```
-
-**Example:**
-```
-Synthwave Bossa Nova, dreamy and nostalgic, 95 BPM, DX7 synths, nylon guitar, smooth female vocals, clean studio mix
-```
-
----
-
-*Reference compiled from Suno community style experiments*
