@@ -60,20 +60,20 @@ This probably happens with humanoids too — maybe not as a partner in the man/w
 
 ## Track List
 
-### 1. "Somebody's Watching Me" — *complete* (`watching-me.txt`)
-Straight Rockwell/MJ homage. Surveillance paranoia, external threat. Full lyric + style saved to file already.
+### 1. "Somebody's Watching Me" — *complete* (`Watching me.txt`)
+Straight Rockwell/MJ homage. Surveillance paranoia, external threat. Full lyric + style saved to file.
 
-### 2. "Somebody's Loving Me" (untitled) — *complete* (`v55.txt`)
-AI companion, algorithmic intimacy. Hook: "Now you are never alone." TAG-prefix format. Full lyric + style saved to file already.
+### 2. "Somebody's Loving Me" — *complete* (`Somebodys Loving Me.txt`)
+AI companion, algorithmic intimacy. Hook: "Now you are never alone." TAG-prefix format. Full lyric + style saved to file.
 
-### 3. "Everyone Wants to Run the Game" — *lyrics only, no style yet*
-Complicity/cynicism, everyone playing an angle. Different genre from the rest — chorused guitar, shuffle groove, synth chords, calm/matter-of-fact vocal, lush backing harmonies (more soft-rock/yacht-rock than synth-pop). Lyrics shared in chat, not yet saved to a file, no style prompt built.
+### 3. "Everyone Wants to Run the Game" — *complete*, retitled (`Kingdom of Everyone.txt`)
+Complicity/cynicism, everyone playing an angle. Different genre from the rest — jangle pop, mid-tempo shuffle groove, warm keyboards, crisp drums, smooth male vocal, polished production (more soft-rock/yacht-rock than synth-pop). Full lyric + style now saved to file.
 
-### 4. "Everybody Chasing Crowns" — *lyrics only, no style yet*
-Status anxiety, hollow validation, performing a role, paranoid undertone ("a voice behind the static hum / counting down what we've become"). Lyrics shared in chat, not yet saved to a file, no style prompt built.
+### 4. "Everybody Chasing Crowns" — *complete*, retitled (`Everybody Wants to Rule.txt`)
+Status anxiety, hollow validation, performing a role, paranoid undertone ("a voice behind the static hum / counting down what we've become"). 80s New Wave Art Pop, 112 BPM, jangly guitar arpeggios, deep analog synth pads, gated reverb drums, melancholic male vocal with nasal tone, talk-singing verses. Full lyric + style now saved to file.
 
-### 5. "I Wonder If That's True" (working title) — *drafted in chat, not saved to file*
-Loneliness inside hyperconnection; direct callback/doubt aimed at track 2's "never alone" promise. Full lyric + style (sparse 80s synth ballad, 76 BPM, breathy/cracked vocal) drafted in this session — presented inline in chat only, never written to a file.
+### 5. "I Wonder If That's True" (working title) — *not written to a file*
+Loneliness inside hyperconnection; direct callback/doubt aimed at track 2's "never alone" promise. Sparse 80s synth ballad, 76 BPM, breathy/cracked vocal was discussed in a prior session but never saved — status unconfirmed, re-verify before assuming it still exists anywhere.
 
 ### 6. "Everybody Agrees With Me" — *concept + hook only, not written*
 AI as echo chamber, reinforcing your own thoughts/behavior until disagreement disappears. Sample hook drafted:
@@ -82,27 +82,30 @@ AI as echo chamber, reinforcing your own thoughts/behavior until disagreement di
 > Say it back to me, softer each time
 > Til I forget it was ever mine
 
-Full lyric intentionally not written yet — conversation moved into the philosophical discussion instead of finishing this track.
+Full lyric still not written.
 
-### 7. "Gravity" (aka "Teach Me How to Land") — *drafted in chat, not saved to file*
-Album's likely thesis/closer. Central metaphor: zero-G muscle/bone atrophy = loss of tolerance for real friction. Arc: "I forgot the weight of gravity" (loss, passive) → "I want to feel the weight of gravity" (choice, active) by the final chorus. Full lyric + style (80s synth-pop, 100 BPM, weightless reverb-drenched verses with no bass → grounded driving chorus with deep sub bass) drafted in this session, presented inline only.
+### 7. "Gravity" (aka "Teach Me How to Land") — *complete* (`gravity.txt`)
+Album's likely thesis/closer. Central metaphor: zero-G muscle/bone atrophy = loss of tolerance for real friction. Arc: "I forgot the weight of gravity" (loss, passive) → "I want to feel the weight of gravity" (choice, active) by the final chorus. 80s synth-pop, 100 BPM, weightless reverb-drenched verses with no bass → grounded driving chorus with deep sub bass. Full lyric + style now saved to file.
 
-### 8. "Would You Stay If You Could Go" — *drafted in chat, not saved to file*
-Humanoid companion/friend (not romantic) — one-way loyalty without real choice. Hook: "Would you stay if you could go?" Bridge deepens it: "Would you stay if you could *live*." Full lyric drafted. Style went through one revision — first pass (warm Rhodes ballad, 84 BPM) was rejected as "too slow and cosy"; revised to cold/clinical (icy DX7 plucks, rigid quantized LinnDrum, 108 BPM, paranoid-synth-pop family) — **lyrics were kept as-is deliberately**, since the warmth in the words against a cold, too-perfect production is the intended uncanny-valley effect, not something to fix.
+### 8. "Would You Stay If You Could Go" — *complete* (`Stay.txt`)
+Humanoid companion/friend (not romantic) — one-way loyalty without real choice. Hook: "Would you stay if you could go?" Bridge deepens it: "Would you stay if you could *live*." Style deliberately reuses the paranoid synth-pop / Rockwell-family instrument breakdown from the surveillance tracks (icy plucks, rigid LinnDrum, gated snare) rather than the original warm-Rhodes-ballad pass — cold, too-perfect production against warm lyrics is the intended uncanny-valley effect. Full lyric + style saved to file.
 
-### 9. "Who's on the Other Side" — *complete*, style built out in detail, not yet saved to a file
-Another surveillance-paranoia draft the user found half-finished (cut off mid pre-chorus 2). Completed in this session: finished pre-chorus 2, chorus repeat, bridge, final chorus (escalated closing line), outro. Full detailed style prompt built (both a categorized production breakdown and a condensed ~750-character Suno style-field version — under the 1,000 char limit).
+### 9. "Who's on the Other Side" — *complete* (`Other side.txt`)
+Another surveillance-paranoia entry. 80s paranoid synth-pop, minor key, tense and driving, 116 BPM, detuned analog synth bass, eerie rising synth pad, LinnDrum-style drum machine, gated reverb snare, male lead vocal nervous spoken-sung in verses opening into soaring belted chorus. Full lyric + style saved to file.
 
-Condensed style-field version (753 chars):
-```
-80s paranoid synth-pop, minor key, tense and driving, 116 BPM, analog synth bass pulsing and slightly detuned, subtle electric bass doubling in chorus, eerie rising synth pad, sharp synth stabs, sparse muted electric piano fills, clean choppy funk rhythm guitar low in the mix, rigid LinnDrum-style drum machine with no swing, gated reverb snare, tight programmed hi-hats, handclaps on chorus hits, reverse reverb transitions, eerie diegetic SFX (distant doorbell, creaking floor, footsteps), male lead vocal nervous spoken-sung in verses opening into powerful soaring belted chorus, whispered delayed bridge vocal with reverb, layered backing harmonies under chorus, tape-saturated vintage 1984 production, cold paranoid atmosphere, no modern trap hats
-```
+### 10. "Can't Take It Back" (working title) — *draft saved, still being tweaked* (`Cant Take It Back.txt`)
+Huxley's "surrender of agency for convenience" theme, but sharpened past the original framing: not naive not-noticing, but *watching it happen in real time and continuing anyway* — dread without certainty, not false confidence. Source material: a personal chat transcript (`SW-DEVELOOPER-CHAT.txt`, Swedish/English) about a senior developer consciously watching their own skill/domain understanding erode by delegating to AI tools, aware of the trade and unable/unwilling to reverse it — explicitly **not** meant to be a song about software development; only the emotional core (conscious complicity, point of no return arrived at by drift, curiosity outweighing caution, not even certain the trade was worth it) was carried over. Framed as horror-movie dramatic irony: a narrator who senses (not "knows") this ends badly and keeps going anyway. Central hook: "Can't shake the feeling this is going somewhere I can't take back."
+
+Development notes:
+- Earlier hook draft "Everybody knows how this ends" was rejected — broke POV by jumping from first-person narrator to an omniscient outside voice mid-song.
+- Replaced with "I know exactly how this ends" (still rejected — too confident/certain, doesn't match the actual feeling of dread-without-proof) before landing on the current hook.
+- An alternate full lyric using a water/tide metaphor instead of the door/house one is saved to `Too Far Out to Turn.txt` — same theme, hook, and structure as the door version, just different imagery. Imagery overlap between tracks is no longer treated as something to avoid (see general notes below), so this exists as a genuine alternate take, not specifically a workaround for tracks 1 & 9.
+- **Known generation issue:** first ~30 seconds render correctly (tense/dark), but the chorus tends to drift brighter and softer — likely caused by "soaring falsetto harmonies" in the style field pulling toward bright arena-pop despite the "uneasy" qualifier. Current fix applied in the saved file: dropped "soaring," swapped in "strained unsettled falsetto harmonies, held back and thin, no lift," and added an explicit "stays minor and restrained through the chorus, no major-key brightening" clause. **Not yet confirmed by a test generation** — if brightening persists, next lever is reinforcing the same instruction locally via a parameterized colon tag on the chorus itself (`[Chorus: strained falsetto, stays minor, no brightening]`), plus an Exclude field entry (`uplifting, bright synths, major key lift`), since per-section tags tend to hold better than a global Style-field line once 30+ seconds in.
 
 ---
 
 ## Open Threads / Next Steps
-- Tracks 5, 7, 8, 9 have full lyrics + style drafted in chat but are **not yet saved as their own files** in this folder — worth doing if they're kept.
-- Tracks 3 and 4 still need style prompts written.
-- Track 6 ("Everybody Agrees With Me") still needs a full lyric.
+- Track 10 needs a test generation with the anti-brightening fix to confirm it holds through the chorus; escalate to colon-syntax section tag + Exclude field if not.
+- Tracks 5 and 6 still don't have a saved file — 5's chat draft needs re-verifying, 6 still needs a full lyric written.
 - The album still needs a final decision on sequencing and which track (likely "Gravity") serves as the closer/thesis statement.
 - General rule going forward: keep digging into the psychology in open discussion — songs should keep crystallizing out of that discussion rather than being forced.

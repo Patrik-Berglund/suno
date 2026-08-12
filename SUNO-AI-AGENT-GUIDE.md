@@ -14,13 +14,38 @@
 [Genre] + [Mood] + [Tempo] + [Instruments] + [Vocals] + [Production Quality] + [Emotion]
 ```
 
-**Optimal length:** 15-30 words (4-7 descriptors)
+**Optimal length:** 15-30 words (4-7 descriptors) as a floor for fast iteration — not a hard ceiling. See [Two Valid Prompt Styles](#two-valid-prompt-styles) below for when longer narrative prose outperforms this.
 **Rule:** Most important descriptors first—Suno weights early words more heavily
 
 **Example:**
 ```
 Melodic techno, emotional and driving, 126 BPM, deep analog bass, ethereal pads, female vocal samples, progressive structure, studio-grade clean mix
 ```
+
+---
+
+## Two Valid Prompt Styles
+
+The formula above is a **keyword-dense** style: pack the essentials into 15-30 words for fast iteration and easy A/B testing of single descriptors. It's not the only style that works.
+
+**Narrative prose style** — sourced from official Suno docs (not community inference, so weight it at least as reliable as the keyword formula): the Style field can also be written as flowing descriptive paragraphs covering genre feel, instrumentation, and arrangement dynamics in full sentences, with Tempo and Mood broken out as their own labeled beats.
+
+Official example (90s-inspired hip-hop track):
+```
+I want a 90s-inspired hip-hop track that feels upbeat, funky, and full of live energy. Think warm vinyl textures, syncopated drums, and jazzy chord progressions. The beat should swing — not rigid — with crisp snare hits, layered hi-hats, and a deep, rounded bassline that drives the groove.
+
+Add electric piano chords, upright bass, muted trumpet accents, and percussive fills for that live jam feel. The mix should sound open and dynamic, like a live band recording with analog warmth.
+
+Tempo: Around 102–106 BPM — quick enough to feel danceable but still relaxed and rhythmic. Slight tempo lift during the chorus for momentum.
+
+Mood: Confident, playful, and intelligent. It should sound like a jam session among skilled MCs and musicians — rhythmic, soulful, and contagious in energy.
+```
+
+**When to use which:**
+- **Keyword formula:** early exploration, fast iteration, testing individual descriptors
+- **Narrative prose:** once the direction is set and you want to lock in arrangement/dynamics detail — especially useful for describing *how* elements interact ("swing — not rigid," "slight tempo lift during the chorus") rather than just listing them
+
+Both fit inside the Style field's 1,000-char budget (see below). The "15-30 words" guidance is a starting point for iteration speed, not evidence that longer prompts underperform — see the revised [Prompt Complexity Balance](#prompt-complexity-balance) note for how this reconciles with the "Too Complex" warning elsewhere in this guide.
 
 ---
 
@@ -81,6 +106,10 @@ Melancholic indie pop, acoustic guitar, female lead, clean mix, mid-tempo 96 BPM
 ---
 
 ## Creative Control Sliders
+
+Sliders shape *how* the model interprets your text prompt, not *what* to generate. Mental model: the Style/Lyrics prompt defines the vocabulary; the sliders define the grammar — the same "jazz" prompt at low Weirdness produces a conventional jazz standard, at high Weirdness produces jazz that breaks its own conventions. Available in Custom Mode below the Lyrics field (V4.5+, still applicable at v5.5).
+
+**Unconfirmed mechanism hypothesis:** Weirdness plausibly works like a sampling-probability control — low values favor the most probable next musical event at each step (conventional, predictable), high values let lower-probability events through more often (surprising, less coherent). Suno hasn't documented the actual mechanism; treat this as a hypothesis, not fact, same as other internals claims in this guide.
 
 ### Weirdness (Safe → Chaos)
 ~50% = normal baseline
@@ -457,6 +486,11 @@ Meta tags are keyword markers that steer structure, style, and production. Most 
 - **Style field:** Use without brackets as descriptions
 - **Top of lyrics:** Front-load control tags in first 3–5 lines
 
+**V5.5 UI features (don't change tag vocabulary):**
+- **Lyrics Editor structure labels** — the web Lyrics Editor lets you label sections Verse/Chorus/Outro from a UI control instead of typing bracket tags. Same underlying job as `[Verse]`/`[Chorus]`/`[Outro]`; use whichever surface you're actually composing in.
+- **My Taste** — biases defaults only when a prompt is underspecified. Explicit Style-field descriptors and Lyrics-field meta tags still override it — it doesn't compete with anything you've deliberately written.
+- **Style Augmentation (magic wand icon)** — generates personalized *style* text for you; it does not generate or modify structural meta tags.
+
 ### Song Structure Tags
 
 ```
@@ -613,6 +647,10 @@ For per-section control (e.g. a chorus that needs to sound markedly different fr
 [Yelping] - Sharp, sudden
 [Grunting] - Low, forceful
 [Call-and-response] - Back-and-forth
+[Scream] - Screamed/shouted delivery (metal, punk)
+[Ad-lib] - Improvised vocal phrases
+[Vocal Run] - Quick succession of notes, often improvised
+[Crooning] - Soft, intimate singing style
 ```
 
 **Dynamics & Volume:**
@@ -752,6 +790,17 @@ For per-section control (e.g. a chorus that needs to sound markedly different fr
 [Climactic] - Musical high point
 [Emotional Swell] - Gradual emotional build
 [Sudden Break] - Abrupt change
+[Silence] - Brief pause in the audio
+```
+
+**Classical Dynamics Markings** (from Suno's own glossary):
+```
+[Forte] - Loud
+[Piano] - Soft (dynamics sense, not the instrument — context disambiguates)
+[Fortissimo] - Very loud
+[Pianissimo] - Very soft
+[Accent] - Emphasis on a particular note or beat
+[Tremolo] - Rapid repetition of a note or alternation between notes
 ```
 
 ### Instrument Tags
@@ -810,6 +859,18 @@ For per-section control (e.g. a chorus that needs to sound markedly different fr
 [Handclaps] - Percussive claps
 [Brushed Kit] - Jazz brushes
 [Gated Drums] - 80s gated reverb
+```
+
+**Solo & Passage Tags:**
+```
+[Guitar Solo] - Guitar-focused instrumental passage
+[Piano Solo] - Piano-focused passage
+[Drum Solo] - Percussion-focused passage
+[Bass Solo] - Bass-focused passage
+[Saxophone Solo] - Sax-focused passage
+[Synth Solo] - Synthesizer lead passage
+[Strings Rise] - String section swell
+[Percussion Break] - Rhythm-focused breakdown
 ```
 
 ### Production & Effects Tags
@@ -901,6 +962,15 @@ For per-section control (e.g. a chorus that needs to sound markedly different fr
 Specific: [90 BPM], [120 BPM], etc.
 ```
 
+**Classical Tempo Terms** (from Suno's own glossary — an alternative vocabulary to plain BPM/descriptor tags):
+```
+[Adagio] - Slow, "at ease" (66-76 BPM)
+[Andante] - Moderate walking pace (76-108 BPM)
+[Allegro] - Fast, lively (120-168 BPM)
+[Presto] - Very fast (168-200 BPM)
+[Rubato] - Flexible tempo; performer speeds up/slows down expressively
+```
+
 **Rhythmic Feel:**
 ```
 [Straight Feel] - Even eighth notes
@@ -959,6 +1029,21 @@ Specific: [90 BPM], [120 BPM], etc.
 [C Major], [G Major], [D Major], [A Major], [E Major]
 [A Minor], [E Minor], [B Minor], [F# Minor]
 [Major Key] / [Minor Key]
+[Key Change] - Harmonic modulation to a new key
+```
+
+**Advanced Theory Terms** (from Suno's own glossary — useful for orchestral/classical/jazz prompting):
+```
+[Cadence] - Harmonic/melodic formula creating a sense of resolution or pause
+[Ostinato] - A repeated musical pattern or phrase
+[Pedal Point] - A sustained/repeated note while harmonies change above it
+[Suspension] - Holding a note from one chord into the next, creating tension
+[Augmentation] - Lengthening the rhythmic values of a melody
+[Diminution] - Shortening the rhythmic values of a melody
+[Anacrusis] - Pickup notes occurring before the first full measure
+[Coda] - A concluding section that brings a piece to an end
+[Arpeggio] - Playing chord notes in sequence rather than simultaneously
+[Interval] / [Octave] - The distance between two pitches / the interval of double frequency
 ```
 
 ### Sound Effects Tags
@@ -1305,13 +1390,15 @@ Genre + Mood + Tempo + Instruments + Vocals + Production Quality + Emotion
 **Too Simple:** "Make a pop song"
 - Result: Generic, unpredictable
 
-**Optimal:** "Upbeat indie pop, 110 BPM, jangly guitars, warm bass, female vocals, clean bright mix"
+**Optimal (keyword style):** "Upbeat indie pop, 110 BPM, jangly guitars, warm bass, female vocals, clean bright mix"
 - Result: Clear direction, good consistency
 
 **Too Complex:** "Upbeat indie pop with jangly Rickenbacker 12-string guitars, Fender Precision bass with flatwound strings, Ludwig drum kit with Zildjian cymbals, female soprano vocals with Neumann U87 microphone, SSL console mixing..."
 - Result: Confusion, missed elements, artifacts
 
-**Rule:** 15-30 words, 4-7 key descriptors
+**Note the difference:** the "Too Complex" failure here isn't length — it's stacking specific gear/brand names (see [Prompt Construction Rules → Avoid](#always-include): "brand names, specific gear models" is its own listed pitfall). Long narrative prose describing sound, feel, and arrangement in plain language is a different thing and works well — see [Two Valid Prompt Styles](#two-valid-prompt-styles).
+
+**Rule:** 15-30 words / 4-7 key descriptors for keyword-style prompts; narrative prose can run longer as long as it stays in plain descriptive language rather than named gear.
 
 ---
 
@@ -1521,7 +1608,7 @@ Replace with phonetic spellings if needed
 - [ ] Mood + genre clear
 - [ ] Tempo set (BPM or descriptor)
 - [ ] Production quality descriptor included
-- [ ] 15-30 words total (4-7 descriptors)
+- [ ] 15-30 words total (4-7 descriptors) — or narrative prose if using that style (see [Two Valid Prompt Styles](#two-valid-prompt-styles))
 - [ ] Most important elements first
 - [ ] Lyrics: 4-6 lines per section
 - [ ] Lyrics: structure tags present
@@ -1635,7 +1722,7 @@ Every prompt/lyric response must end with a list of 5–8 suggested song titles 
 
 1. **Always ask clarifying questions** if genre, mood, or vocal type unclear
 2. **Start with the formula:** Genre + Mood + Tempo + Instruments + Vocals + Production Quality
-3. **Keep prompts 15-30 words** (4-7 descriptors)
+3. **Keyword prompts: 15-30 words** (4-7 descriptors) for fast iteration; narrative prose can run longer — see [Two Valid Prompt Styles](#two-valid-prompt-styles)
 4. **Most important first:** Suno weights early words more
 5. **Include production quality:** Always add 1-2 quality descriptors
 6. **Lyrics: 4-6 lines per section** maximum

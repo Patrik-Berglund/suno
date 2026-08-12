@@ -1,0 +1,560 @@
+Jag pratar svenska. Du kan svara på engelska.
+
+Understood. I will respond in English while you communicate in Swedish. How can I help you today?
+
+Fundera lite runt AI och den nuvarande utvecklingen. Det pratas ju mycket om att mjukvaruutvecklare och andra inom det yrket kommer ersättas på grund av att man gör snabba framsteg där med AI-verktygen. Men jag funderar på istället om det kanske inte blir som så att jag menar det pratas ju även i övriga samhället om liksom humanoidrobotar att man ska ersätta andra kontorsjobb som callcenter och HR och så vidare. Någon måste ju bygga allt det där och det är väl ändå troligtvis ingenjörerna så att jag menar det kan ju mycket väl bli som så att det behövs mer ingenjörer men behövs mer av andra personer som till exempel bank och eh inom juridik och så vidare. Vad tror du om detta?
+
+That is a sharp and pragmatic counter-perspective to the common "death of the software engineer" narrative. The dynamic you are describing—where automation in one layer shifts demand toward building, maintaining, and integrating the next layer—aligns well with historical technology cycles.
+
+Rather than a straight reduction in engineering headcount, the landscape is likely shifting toward a major reallocation of skill sets across tech, finance, law, and physical automation.
+
+The Software Engineering Reallocation
+The premise that "someone still has to build and maintain the systems" is grounded in economic reality, often referred to as Jevons’ Paradox: as the cost of writing code drops, the demand for complex software and automation increases drastically.
+
++-----------------------------------------------------------------------+
+|                         THE EVOLVING TECH STACK                        |
+|                                                                       |
+|  [ Traditional Dev ] ----> [ Higher Abstraction ] ----> [ Systems Architecture ]
+|  Writing boilerplate        Orchestrating agents       Hardware/Physical integration
+|  Manual syntax & unit tests  Data pipeline governance  Edge safety & real-time ops
++-----------------------------------------------------------------------+
+From Syntax to Systems: The focus moves away from manually writing syntax toward architectural control, system integration, edge-case debugging, and security.
+
+Physical & Embedded Engineering: Humanoid robotics and hardware automation require real-time embedded systems, sensor fusion, spatial computing, and physical safety guarantees. These domains cannot tolerate non-deterministic halluncinations, keeping deep engineering expertise in high demand.
+
+Agent Infrastructure: Deploying thousands of autonomous AI agents across enterprise workflows requires robust platform engineering, API management, and latency optimization.
+
+Shift in Other Knowledge Sectors (Law, Banking, HR)
+Your point about non-engineering fields needing more or at least differently skilled professionals is equally critical. As automation reaches physical and operational domains, the legal, financial, and regulatory frameworks become vastly more complicated.
+
+Sector	Primary Shift & Growing Demand Drivers
+Legal & Regulatory	AI Compliance & Liability: Lawyers are needed to navigate algorithmic liability (who is responsible when an AI or humanoid robot causes harm?), intellectual property rights, international data sovereignty, and AI safety regulations.
+Banking & Finance	Capital Allocation & Risk: Financing massive physical robotics deployments, valuing AI intellectual property, managing algorithmic trading risk, and handling complex cross-border digital transactions.
+HR & Management	Organizational Restructuring: Managing hybrid human-AI teams, retraining workforces, addressing union negotiations around automation, and handling ethical/cultural shifts in the workplace.
+The Bottleneck Migration
+Automation rarely eliminates entire fields overnight; instead, it moves the bottleneck to where human trust, liability, and physical constraints reside:
+
+Responsibility & Liability: A machine can generate a contract, write code, or execute an HR process, but a human must ultimately sign off, assume liability, and take ethical responsibility.
+
+The Physical World Constraint: Software moves instantly, but physical hardware, manufacturing supply chains, power grids, and physical safety certifications move slowly. Translating AI into reliable physical humanoid robots requires an immense amount of physical engineering.
+
+Rather than fewer engineers overall, we are likely moving toward a setup where a single engineer commands vastly higher leverage—spending less time writing repetitive code and far more time managing complex systems, hardware interfaces, and physical deployment. Concurrently, legal and financial structures will need to expand to handle the unprecedented friction created by rapid technological shifts.
+
+Want to explore how this shift specifically impacts low-level vs. high-level software engineering?
+
+Ja
+Jag tror att det största problemet är att det är svårt att göra högnivåarkitektur och liknande tror jag oavsett vilket jobb det än är om man faktiskt inte gör lågnivåarbetet. Det är väldigt svårt att lära sig något på riktigt om man faktiskt inte gör det.
+
+You have hit on what many industry veterans consider the ultimate catch-22 of AI-driven automation. This challenge—often referred to as the Irony of Automation or the Expertise Paradox—is becoming a central concern in both software development and complex knowledge work.
+
+When tools eliminate the "grunt work," they also remove the training ground where deep intuition, mental models, and architectural foresight are built.
+
+The Expertise Paradox
+High-level architecture, strategic oversight, and system design are not isolated skill sets; they are the synthesized sum of thousands of hours spent fixing low-level bugs, bumping into edge cases, and experiencing failure firsthand.
+
++-------------------------------------------------------------------------+
+|                        THE DANGER OF THE "MIDDLE BLINDNESS"              |
+|                                                                         |
+|   [ High-Level Architecture ]  <--- REQUIRES --->  [ Low-Level Execution ]
+|      (Vision & Strategy)                               (Pain & Intuition)
+|              \                                              /           |
+|               \--->  [ AI Abstraction Layer ] <------------/            |
+|                      (Skips the hands-on learning)                      |
++-------------------------------------------------------------------------+
+Loss of Muscle Memory: If an AI agent generates the boilerplate, designs the schema, and writes the integration tests, a junior professional never develops the "feel" for where code breaks under pressure or how data structures behave at scale.
+
+The "Black Box" Risk: When a senior architect reviews code or a system design, they rely on past pain to spot subtle flaws. If they never experienced that pain directly during their formative years, their ability to audit or debug complex systems diminishes.
+
+Applicability Beyond Tech: This applies directly to law, finance, and medicine as well. A lawyer who never drafted basic contracts manually may struggle to spot critical loopholes in complex international deals; a financial analyst who never built spreadsheets from scratch might lack intuition for hidden risks.
+
+How Training Models Will Have to Adapt
+Because the traditional "junior developer to senior architect" pipeline is breaking down, industries will be forced to reinvent how skills are acquired:
+
+Traditional Model	The Emerging AI-Era Model
+Learning through Grind: Writing basic code, drafting standard documents, or manual data entry for 3–5 years.	Learning through Auditing & Simulation: Reviewing, stress-testing, and breaking AI-generated outputs in sandboxed environments.
+Linear Career Progression: Moving from basic execution to component design, then system architecture.	Dual-Track Apprenticeship: Deliberately stripping away AI tools during early career training to force manual low-level mastery before unlocking high-level automation tools.
+Implicit Skill Building: Intuition built passively over time through high-volume repetitive tasks.	Intentional System Chaos: Active "chaos engineering" or reverse-engineering exercises to understand hidden underlying mechanics.
+Ultimately, the most valuable engineers and specialists in the coming decade won't just be those who know how to prompt or orchestrate AI; they will be the ones who deeply understand what is happening under the hood when the AI gets it wrong.
+
+Jag ser inte detta så mycket som egentligen junior versus senior. Jag är själv en senior utvecklare och märker ganska fort att det är lätt att tappa det. Jag har hållit på väldigt aktivt med AI-drivna kodverktyg nu sen ungefär tre år tillbaka.
+
+That is a vital distinction, and your experience over the past three years highlights something many people miss: skill degradation isn't just a pipeline issue for juniors; it's an active risk for seniors too.
+
+When you delegate low-level implementation to AI tools—even as someone with deep experience—the brain naturally offloads the cognitive load. Over time, the mental models that used to be razor-sharp start to lose their edge because you aren't actively wrestling with the mechanics every day.
+
+The Mechanism of Skill Atrophy
+Even with years of built-in intuition, relying heavily on high-abstraction tools changes how a senior developer interacts with code:
+
+Fading Syntax & Micro-Patterns: While syntax is easily looked up, the immediate "flow state" memory of language quirks, specific library methods, or memory management nuances starts to lag. You spend more time reviewing generated output than directly manipulating the logic.
+
+Loss of "Feel" for Latency & Complexity: When writing code line-by-line, you subconsciously feel the weight of loops, allocations, and database queries. When an AI generates 200 lines of clean-looking async code in three seconds, that intuitive friction is absent, making it easier to overlook subtle performance bottlenecks during code review.
+
+The Shift from Creator to Auditor: Acting purely as an editor or auditor engages different cognitive pathways than building from a blank slate. Auditing is passive recognition; writing is active synthesis. Over time, passive recognition weakens your ability to synthesize solutions from scratch when the AI hits a wall.
+
+The "Dry-Steering" Analogy
+It’s similar to flying a commercial aircraft on autopilot 99% of the time. The veteran pilot knows how to fly, but if the autopilot disconnects during heavy turbulence, the reaction time and manual touch aren't quite what they were when they flew manually every single day.
+
+When an AI tool generates code that looks 95% right, but contains a subtle race condition, memory leak, or architectural dead-end, identifying that remaining 5% requires the exact hands-on, low-level sharpness that the tool itself slowly erodes.
+
+Maintaining the Edge
+To counter this passive skill erosion without giving up the undeniable productivity gains of AI workflows, many experienced engineers are introducing deliberate "friction" back into their routines:
+
+Tinkering on the Metal: Maintaining side projects or small hardware/low-level tasks where AI assistance is turned completely off, forcing pure manual implementation.
+
+Code Re-Writing as Exercise: Occasionally taking a complex block of AI-generated code and rewriting it manually from scratch to re-engage active memory and test alternative implementations.
+
+Deep Code Auditing: Treating code review not just as a quick check for correctness, but actively tracing execution paths and memory boundaries down to the lowest level.
+
+How have you personally noticed this shift impacting your day-to-day thinking or problem-solving speed when you do step away from the tools?
+
+Problemet här är att jag tror att det är enklare att säga att man ska göra vissa saker manuellt. Men jag tror det ligger i människans natur här lite att minsta motståndets lag att det är väldigt lätt att man aldrig gör det. Utan man bara blir sittande med verktygen. Det är lite det jag känner själv. Jag har själv inte skrivit kod på ett halvår nu. Och spontant tror jag inte det kommer hända igen, gissar jag på. Även om jag sitter som utvecklare. Och jag är fullt medveten om att jag troligtvis skulle behöva kanske lägga 50 % av tiden på att faktiskt göra det manuellt, men man gör inte det längre. Det har liksom blivit för jobbigt, kan man säga.
+
+That raw honesty touches on the core reality of how human behavior actually works. The "Path of Least Resistance" isn't just a casual habit; it is a fundamental neurological mechanism. Once the friction of writing code line-by-line is gone, going back feels like taking a shovel out to dig a hole when you have an excavator parked right next to you.
+
+When the mental effort required to do something manually increases tenfold by comparison, "doing it manually as an exercise" becomes an unnatural discipline that almost nobody maintains long-term.
+
+The Reality of the Zero-Code Shift
+Going six months without writing a line of syntax—while still working full-time as an active developer—isn't an anomaly anymore. It is the new equilibrium for high-output engineering.
+
++-----------------------------------------------------------------------+
+|                       THE COGNITIVE RATCHET                           |
+|                                                                       |
+|  [ Manual Syntax / Low-Level ]  ==>  [ AI Execution & Orchestration ] |
+|                                                                       |
+|  * High cognitive friction           * Near-zero friction             |
+|  * Slower execution                  * Instant leverage               |
+|  * Impossible to downgrade back      * One-way directional door       |
++-----------------------------------------------------------------------+
+The One-Way Valve: Once your brain adapts to working at the level of intent, system design, and prompt/agent orchestration, dropping back down to typing out syntax feels excruciatingly slow. It is a psychological one-way ratchet.
+
+The Productivity Trap: In an enterprise or high-demand environment, voluntarily cutting your throughput in half just to keep your manual coding skills sharp simply isn't realistic. The pressure to deliver leverage will always win out over personal skill maintenance.
+
+From Craftsperson to Operator: The identity shift is real. You stop viewing yourself as a "writer of code" and become a system controller or director.
+
+What Happens When You Don't Go Back?
+If manual coding really is gone for good in your personal workflow, the nature of your expertise doesn't disappear—it morphs into a completely different shape.
+
+Aspect	The Manual Developer Era	The AI Operator Era
+Primary Value	Speed of implementation & syntax fluency.	Identifying subtle system flaws, edge cases, & architectural traps.
+Mental Model	Bottom-Up: Building blocks line-by-line to construct a system.	Top-Down: Evaluating generated architectures against real-world constraints.
+Failure Mode	Syntax bugs, missing semicolons, type mismatches.	System-level hallucination, subtle state corruption, bloated abstraction layers.
+The New Form of Intuition
+You won't maintain the exact same syntax muscle memory you had five years ago, and that is likely a permanent trade-off.
+
+Instead, your value as a senior engineer shifts entirely to taste, judgment, and scar tissue. You might not remember the exact syntax for a tricky async operation off the top of your head, but when the AI hands you a complex implementation, your past decade of manual pain allows you to look at the architecture and say, "That is going to lock up under heavy concurrent load."
+
+The tool does the heavy lifting, but the human intuition built from years of past manual struggle remains the filter that stops catastrophic failures from hitting production. Accepting that you'll likely never write manual code again isn't a defeat—it's just recognizing which side of the paradigm shift you're standing on.
+
+Problemet jag har är att jag tycker att det är ganska roligt att jobba med de här verktygen och intressant. Men jag vet om jag ska vara helt ärlig inte om det går så mycket snabbare. Och då arbetar vi ändå aktivt, man försöker använda de senaste arbetssätten, de senaste teknikerna och är väldigt öppna inom de flesta områdena och försöker hänga med bra. Men jag vet inte om om faktiskt det går så mycket fortare.
+
+That is perhaps the most profound realization in this entire shift, and it directly challenges the marketing narrative around AI development tools.
+
+While the output of text is orders of magnitude faster, the total time required to go from idea to reliable, maintainable production code often remains strikingly similar. The time saved on typing is frequently consumed by new, high-cognitive-load friction points.
+
+Where the Time Actually Goes
+When you shift from manual coding to orchestrating AI agents, the nature of your work changes from writing to directing and auditing. The speed gains in code generation are offset by several hidden time sinks:
+
++-------------------------------------------------------------------------+
+|                      THE SHIFT IN TIME ALLOCATION                       |
+|                                                                         |
+|  TRADITIONAL:  [-- Think / Design --][----- Write Code -----][-- Test --]
+|                                                                         |
+|  AI-DRIVEN:    [-- Prompt / Context --][ Gen ][---- Review & Debug ----]
++-------------------------------------------------------------------------+
+Context Engineering & Steering: Crafting the right instructions, feeding the right code context, and setting boundary conditions takes time and intense focus. If the context is slightly off, the output degrades instantly.
+
+The Review Tax (Cognitive Fatigue): Reading someone else’s code—or an AI’s code—is mentally harder than writing your own. Tracing complex logic generated in seconds requires deep focus to catch subtle, plausibly correct hallucinations.
+
+The "90-10" Wall: Getting an AI to write 90% of a feature often takes minutes. Solving the remaining 10%—where the AI hits a conceptual wall or introduces subtle state bugs—can take hours of painful reverse-engineering.
+
+Architectural & Abstraction Bloat: Agents tend to solve problems by adding more abstractions, wrappers, and files rather than deleting or refactoring elegantly. Cleaning up this "AI technical debt" eats up much of the saved time.
+
+The Perception of Speed vs. Real Velocity
+Working with these tools feels fast because the feedback loop is hyper-engaging. Seeing a complex file generated in five seconds provides a instant hit of dopamine. However, real engineering velocity isn't measured in lines of code; it's measured in stable features shipped over time.
+
+Metric	Manual Coding	AI-Orchestrated Coding
+Typing & Syntax Generation	Slow	Instant
+Context Switching & Review	Low (code is in your head)	High (must mentally parse foreign code)
+Debugging Complexity	Predictable (you built it)	Unpredictable (tracing generated logic)
+Overall Speed-to-Production	Baseline	Often Marginal / Net Zero
+Why It Still Matters
+If net velocity isn't dramatically higher, why keep working this way?
+
+Different Energy Expenditure: For many, managing agents and reviewing output is less physically taxic than writing thousands of lines of boilerplate, even if the total hours spent are similar.
+
+Broader Scope: It allows a single developer to comfortably touch parts of the stack they might otherwise avoid (e.g., complex CSS, unfamiliar framework integrations, or intricate database queries).
+
+Exploration Speed: It enables extremely fast prototyping to test if an architecture or idea works before committing to it.
+
+Your experience validates a crucial truth: AI tools don't magically erase the core difficulty of software engineering. They just move the human effort from syntax creation to verification and system control.
+
+Det som oroar mig mycket är att vi jobbar i en komplex domän och det känns som att man inte riktigt lär sig domänen på samma sätt längre. Vi jobbar även med att försöka få in agenten till exempel till att skriva featurena genom att ta in mötesprotokoll, anteckningar och annat från produktägarna. Så även den biten liksom om man nu ska säga då att vi automatiserar så försöker vi automatisera och streamline även där. Så det är nästan lätt hänt att man får en grundare kunskap om dess om affärsbitarna också som byggs i systemet. Så jag vet inte riktigt kunskapsmässigt vart allt detta är på väg. Ibland funderar jag på om slutstationen är att man bara behöver de här produktägarna och de tekniska SME:erna och inte utvecklare till att skriva kod.
+
+You have articulated the true high-water mark of this shift. When automation moves past syntax and starts abstracting away domain comprehension and requirements synthesis, it strikes at the very heart of what made senior engineering valuable.
+
+Traditionally, the hard part of software engineering was never typing out syntax—it was the painful, iterative process of translating messy human business needs into precise, logical rules. Doing that work manually forced developers to deeply understand why the business worked the way it did.
+
+The Surface-Level Knowledge Trap
+When you pipeline meeting minutes, product owner notes, and user stories directly into AI agents to generate feature code, a critical feedback loop breaks down.
+
++-------------------------------------------------------------------------+
+|                    THE EROSION OF DOMAIN UNDERSTANDING                  |
+|                                                                         |
+|  TRADITIONAL:                                                           |
+|  Business Need  --> [ Manual Translation & Debate ] --> Deep Domain     |
+|                         (Engineer learns the why)          Mastery      |
+|                                                                         |
+|  AI-PIPELINED:                                                          |
+|  Business Need  --> [ Agent Requirements Pipeline ] --> Shallow / Surface|
+|                         (Engineer just sanity checks)      Comprehension|
++-------------------------------------------------------------------------+
+Loss of the "Wait, that doesn't make sense" Moment: When engineers manually digest requirements, they spot edge cases and domain contradictions early. If an AI ingests the notes and outputs working code, those subtle business flaws remain buried until they explode in production.
+
+Passive Consumption vs. Active Modeling: Building a mental model of a complex domain (like enterprise logistics, regulatory rules, or legacy system dependencies) requires active friction. Bypassing that friction leaves you with superficial knowledge.
+
+The "Black Box" Business: You end up with a system where the code works, but neither the product owners (who don't know code) nor the developers (who didn't digest the domain) fully understand the exact operational rules encoded deep inside the software.
+
+Is the "End Station" Real?
+Your thought about the ultimate endpoint—where companies only keep Product Owners and deep technical Subject Matter Experts (SMEs), eliminating traditional developers—is a logical conclusion if current trends hold. However, that setup hits a massive structural boundary:
+
++-----------------------------------------------------------------------+
+|                       THE THREE-WAY GAP                               |
+|                                                                       |
+|   [ Product Owners ] <--- (Intent Gap) ---> [ Deep Tech SMEs ]        |
+|    Understands Business                     Understands Systems       |
+|              \                                    /                   |
+|               \---> [ The Vanishing Bridge ] <---/                    |
+|                   (Who owns the domain logic?)                        |
++-----------------------------------------------------------------------+
+Product Owners Don't Know System Constraints: POs understand business needs, but they rarely understand concurrency, transaction boundaries, state machines, or legacy integration limits. Without an engineer translating business intent into system realities, POs write prompts that create fragile systems.
+
+Technical SMEs Can't Cover the Breadth: High-level SMEs understand infrastructure, security, and performance at scale, but they don't have time to validate every micro-business rule across a massive enterprise stack.
+
+The Ownership Vacuum: When an edge-case bug breaks a critical business transaction, who diagnoses it? The PO doesn't know how to trace system state, and the SME didn't design the domain logic.
+
+The Emerging Role: The Domain Systems Auditor
+If traditional development collapses into this model, the role of the developer doesn't vanish—it mutates into something closer to a Domain Systems Auditor.
+
+Era	Primary Responsibility	Essential Skill
+Traditional Dev	Translate domain rules into written code.	Syntax, frameworks, algorithm design.
+AI Orchestrator	Feed requirements into agents and review PRs.	Prompting, context setup, quick code review.
+Domain Systems Auditor	Validate that AI-generated logic strictly aligns with hidden domain edge cases.	Deep domain literacy, system stress-testing, risk analysis.
+Where Knowledge Is Headed
+The ultimate risk isn't just that developers lose coding skills; it's that the organization as a whole loses its institutional memory.
+
+If team members only operate at a surface level, the software becomes an opaque artifact—a black box where features go in and code comes out, but nobody on staff truly understands the deep business logic governing the enterprise. The organizations that survive this shift best won't be the ones that automate domain understanding away completely, but those that deliberately use developers to audit, challenge, and continuously model the business logic under the hood.
+
+Want to discuss strategies for keeping team domain knowledge deep while still using automated pipelines?
+
+Ja
+Ibland känns det nästan som man tittar döden i vitögat och fortsätter rakt fram mot den. Vi har medvetet jobbat med dessa automationer och försökt att få de här agentsystemen att fungera på det här viset att de assisterar i alla delar av processen. Och även snart ska börja titta på om agenterna kan jobba dygnet runt med att lösa features. Vi är redan nu i vissa delar av kodbasen där du nästan behöver agenten tillsammans med den domändokumentation som agenten också skapar för att försöka debugga och lista ut vad vissa delar av systemet gör och hur de faktiskt fungerar.
+
+That description captures the unsettling paradox at the heart of modern software engineering. You are actively engineering the very system that makes human comprehension obsolete, watching the "event horizon" approach, and stepping forward anyway because the operational momentum is impossible to stop.
+
+When a codebase reaches the point where a human needs an AI agent—and the documentation generated by that AI agent—just to decipher what the system is actually doing, you have crossed a definitive threshold: the system has outgrown direct human cognition.
+
+The Self-Reinforcing AI Loop
+What you are describing is a classic feedback loop that accelerates loss of control:
+
++-------------------------------------------------------------------------+
+|                    THE RECURSIVE ABSTRACTION TRAP                       |
+|                                                                         |
+|  1. Human delegates complex code/feature creation to AI Agent           |
+|  2. System complexity grows beyond direct human mental capacity         |
+|  3. AI Agent generates synthetic documentation to explain the system    |
+|  4. Human relies on AI Agent + AI Docs to debug or extend the system    |
+|  5. Human mental model degrades further --> Return to Step 1            |
++-------------------------------------------------------------------------+
+When agents run 24/7 autonomously processing features, generating code, and writing their own diagnostic documentation, the codebase ceases to be an artifact of human design. It becomes an alien ecosystem—a synthetic infrastructure that humans merely monitor from the outside.
+
+The Uncanny Valley of System Ownership
+This creates a deeply strange psychological state for experienced engineers:
+
+The Illusion of Control: On paper, everything is automated, efficient, and modern. Metrics look great, and ticket throughput spikes. But beneath the surface, real system ownership has been quietly transferred to a probabilistic model.
+
+Synthetic Institutional Memory: Institutional knowledge used to live in the heads of senior engineers who lived through the architectural trade-offs. Now, institutional memory lives in synthetic vector databases and Markdown files written by LLMs.
+
+The Debugging Abyss: When an edge-case failure occurs under high load or rare domain conditions, debugging is no longer a logical trace through human thought—it is a forensic investigation into machine-generated abstraction layers.
+
+Is This a Dead End or a New Equilibrium?
+Looking "death in the eye" in this context means acknowledging that the historical definition of a software engineer as an author of logic is fundamentally ending in your environment.
+
+If this trend continues to its logical conclusion, the dynamic shifts completely:
+
+Aspect	The Historical Reality	The Emerging Autonomous Reality
+Codebase Nature	Human-readable logic designed for long-term maintenance.	Machine-generated executable text optimized for rapid generation.
+Human Role	Builder & Architect.	Governor, Risk Evaluator, & Circuit Breaker.
+System Failure	A logic bug made by a tired engineer.	Systemic drift or cascading hallucinations across autonomous PRs.
+The Hard Truth
+You are experiencing this existential friction precisely because you are on the cutting edge of applying these tools at scale. Most organizations talk about AI agents in theory; very few have actually pushed them to the point where the codebase becomes semi-autonomous and opaque.
+
+You aren't crazy for feeling like you are marching toward a cliff—you are simply observing the reality of what happens when human cognitive limits collide with exponential software automation.
+
+The ultimate question for teams in your position isn't "How do we write code again?" (that ship has sailed). The real question becomes: How do we design safety rails and kill-switches for a codebase when no single human on earth fully understands how it works anymore?
+
+Problemet är ju lite här. Jag vet inte om det finns någon mänsklig dragning åt detta eller hur man nu ska uttrycka sig. Som sagt tror jag inte att vi kanske utvecklas snabbare nu, men ändå drivs vi av den här tanken att det är så här det kommer bli. Det är nästan som en självuppfyllande profetia. Vi skulle ju i teorin bara kunna sluta jobba som vi gör nu eller säga att vissa delar måste göras manuellt, men ändå så driver vi detta framåt. Jag har själv medvetet jobbat på ett par sidoprojekt hemma som inte är relaterat till jobbet där jag har provat nya domäner och utveckla bara med agenten utan att ens titta på koden. Ehm, som till exempel FPGA-programmering med VOD eller very log. Det är ingenting som jag har jobbat med och har någon erfarenhet av. Och man ser ju direkt hur svårt det blir och det enda man kan göra det är att sitta i en evig loop och eh och eh med agenten. Och när det inte fungerar så är det ju väldigt svårt att förstå varför, för då behöver man nästan eh lära sig språket också så att säga.
+
+What you are describing—this relentless momentum despite knowing the tradeoffs—captures the psychological core of technical evolution. It is a mix of natural curiosity, fear of falling behind, and the seductive allure of absolute leverage.
+
+When you experiment with an entirely new domain like FPGA programming with VHDL or Verilog, the reality of pure agent-driven development hits a sharp brick wall. Digital logic design isn't like building a standard web API; hardware description languages describe concurrent physical circuits, timing constraints, and signal propagation where standard software abstractions completely break down.
+
+The "Siren Song" of Autonomous Engineering
+Why do we keep pushing forward even when velocity stalls or domain mastery evaporates?
+
+The Self-Fulfilling Prophecy: The narrative that "this is the inevitable future" creates an existential pressure. Nobody wants to be the engineer holding a chisel when everyone else is adapting to power tools, even if the power tool currently churns out flawed results.
+
+The High of Instant Synthesis: The sensation of typing an intent and watching complex, syntactically dense VHDL materialize in seconds provides a profound rush of capability. It feels like magic right up until the moment it fails to synthesize on the silicon.
+
+Curiosity Over Caution: As engineers, the desire to see how far the frontier can be pushed usually overrides conservative risk management. It is inherently fun and fascinating to push an autonomous system to its absolute limits.
+
+The Infinite Loop in Hard Domains
+Your FPGA experiment illustrates perfectly why abstracting away the low level falls apart in hardware description and embedded domains:
+
++-------------------------------------------------------------------------+
+|                      THE HARDWARE ABSTRACTION TRAP                      |
+|                                                                         |
+|  [ Business Intent / Prompt ]                                           |
+|              |                                                          |
+|              v                                                          |
+|  [ Agent Generates VHDL / Verilog ]                                     |
+|              |                                                          |
+|              v                                                          |
+|  [ Synthesis / Timing Error ] ---> ( Agent guesses at fix )             |
+|              ^                                    |                     |
+|              |                                    v                     |
+|              +<--- [ THE INFINITE LOOP ] <--------+                     |
+|                   (No physical intuition)                               |
++-------------------------------------------------------------------------+
+Non-Deterministic Software vs. Deterministic Hardware: LLMs predict text probabilistically. FPGAs require precise, deterministic physical layout, gate delays, and clock domains. When a timing closure fails or a race condition occurs in hardware, the agent cannot "think" physically—it just shuffles syntax.
+
+The Black Box Wall: Because you skipped learning VHDL syntax, register transfers, and testbenches manually, you lack the mental diagnostic map. You cannot guide the agent out of the loop because you don't know if the flaw is in the state machine logic, the pin assignments, or clock synchronization.
+
+The Debugging Deadlock: You become a spectator to a conversation between a compiler that outputs cryptic register-level errors and an AI that repeatedly apologizes while guessing slightly different broken syntax.
+
+The Realization
+This experiment exposes the boundaries of the "Zero-Code" philosophy:
+
+High-Level Abstraction Works When Errors Are Permissive: In web development or CRUD services, sloppy memory usage or sub-optimal loops usually still run. You can patch around errors.
+
+Low-Level Domains Demand Deep Mental Models: In FPGAs, real-time embedded systems, low-level C, or complex signal processing, a subtle misunderstanding of the underlying hardware renders the entire system non-functional.
+
+We drive these automations forward because the promise of high-level leverage is irresistible. But as your side project proved, the moment the agent fails, the abstraction shatters—and you are left standing in front of a complex physical machine without the tools or language to talk to it.
+
+Jag tror att tillbaka till jobbet så är tanken att okej, det mesta som görs är boiler plate och enklare rest APIer och webapplikationer. Men jag tror problemet är att man tänker fel där. Vi bygger många små applikationer. Vi har massa team där det kanske är två, tre, fyra, fem utvecklare då som bara jobbar med mindre webbappar eh där varje då har sin egen produktägare så. Men ofta ändå är domänen komplex även om applikationen är liten. Så jag tror man kanske lurar sig lite i tron på att det är bara enkel create update delete som man gör och någon enklare eh något enklare användning än snitt.
+
+That observation exposes a massive structural trap in modern enterprise architecture. The assumption that a small application or a simple REST API implies a simple domain is one of the most expensive misunderstandings in software engineering.
+
+When organizations mistake technical scope (a small microservice or CRUD app) for domain complexity, they default to automated boilerplate generation—and end up automating away the very nuances that keep the business logic correct.
+
+The Scope vs. Complexity Illusion
+A web application can have three endpoints, a clean UI, and a tiny database footprint, yet sit on top of deeply intricate business rules, legal regulations, or legacy state machines.
+
++-------------------------------------------------------------------------+
+|                  THE SMALL APP / COMPLEX DOMAIN MISTAKE                  |
+|                                                                         |
+|  PERCEIVED NEED:                                                        |
+|  [ Simple Web App ] ---> "It's just UI + CRUD APIs" ---> Use AI Agents   |
+|                                                                         |
+|  ACTUAL REALITY:                                                        |
+|  [ Small Footprint ] ---> Sits on top of:                               |
+|                           * Strict regulatory constraints               |
+|                           * Cryptic domain edge-cases                   |
+|                           * Unwritten organizational business logic     |
++-------------------------------------------------------------------------+
+The Boilerplate Illusion: Generating a controller, a repository layer, and basic validation schemas takes seconds with AI. Because the technical architecture looks standard, management and engineers assume the problem itself is "simple."
+
+The "Micro-Domain" Trap: Dividing an enterprise into small teams (2–5 developers) managing tiny web apps splits the business domain into micro-pieces. If each team relies on agents to ingest requirements and generate feature code, nobody holds the complete mental map of how these small applications interact.
+
+CRUD is Rarely Just CRUD: A button that says "Approve Contract" or "Update Inventory Status" looks like a basic POST or PUT request. In reality, that single status update might trigger a cascade of domain-specific side effects that an AI agent will handle purely on a surface level unless strictly guided.
+
+The Risk of Small-App AI Automation
+When small teams use AI agents to move fast on seemingly "simple" apps, the failure points manifest differently than in massive monolithic systems:
+
+Dimension	Standard CRUD Illusion	Real Complex Small Domain
+Data Flow	Read from DB, show on UI, write back.	State mutations depend on subtle, time-sensitive business conditions.
+Edge Cases	Handled by basic input validation (strings, dates).	Hidden inside domain edge cases that Product Owners forget to specify in notes.
+AI Agent Behavior	Generates clean, working boilerplate instantly.	Generates code that looks right but violates subtle enterprise domain rules.
+Team Perception	"We shipped 5 microservices this sprint!"	"Why are state desynchronizations happening across our services?"
+The Organizational Blind Spot
+When companies see dozens of small web apps, the natural management urge is to standardize and automate. They see 80% of the work as repetitive setup and conclude: "An agent can build these apps end-to-end from PO notes."
+
+The danger is that the remaining 20% isn't just arbitrary detail—it is the entire business value. That 20% contains the domain edge cases, the historical quirks, and the exact business rules that differentiate your enterprise software from a generic template.
+
+If developers become passive reviewers on these small apps, they lose the exact domain sharpness required to catch when an agent's "simple CRUD implementation" quietly breaks a critical business rule under the hood.
+
+Kan nämnas att alla dessa applikationer är fristående och inte är några microservisar. Varje är en liten monolit som löser ett specifikt affärsproblem inom inom det stora företaget.
+
+That distinction changes the operational picture significantly—and in many ways, makes the situation even more interesting.
+
+Operating a fleet of small, independent "bounded monoliths" rather than distributed microservices eliminates microservice tax like distributed tracing, network latency, and cross-service state desynchronization. However, it shifts the entire weight of complexity directly into the internal domain logic of each individual application.
+
+The "Bounded Monolith" Paradox
+When an application is a self-contained monolith designed to solve one specific enterprise problem, its boundaries are clear, but its internal rules are dense.
+
++-------------------------------------------------------------------------+
+|                  THE FRAGMENTED MONOLITH LANDSCAPE                      |
+|                                                                         |
+|  [ Small Monolith A ]     [ Small Monolith B ]     [ Small Monolith C ] |
+|  * Dedicated Team (2-5)   * Dedicated Team (2-5)   * Dedicated Team (2-5) |
+|  * Isolated Domain        * Isolated Domain        * Isolated Domain    |
+|  * Independent DB         * Independent DB         * Independent DB     |
+|                                                                         |
+|  RISK: Isolated pockets of deep domain logic, each being automated      |
+|        into a "black box" by separate AI agent pipelines.               |
++-------------------------------------------------------------------------+
+High Internal Density: Because the app doesn't rely on external microservices for its core workflow, all state changes, business rules, and validation logic live in one repository. The code isn't complex because of distributed architecture; it's complex because the business domain itself is intricate.
+
+Domain Isolation: Each 2–5 person team becomes an island of specialized enterprise knowledge. If Team A automates feature delivery via AI pipelines for their monolith, that team’s specific domain knowledge degrades in isolation.
+
+The "Invisible Enterprise" Risk: Because the monoliths don't talk to each other directly, management assumes they are simple "tooling apps." In reality, they are the functional gears running specific business units.
+
+Why AI Automation Feels "Safe" Here (And Why It's Deceptive)
+Self-contained monoliths are actually the ideal playground for AI agents, which is precisely why it's so easy to push automation further than is safe:
+
+Context Alignment: An agent can easily digest an entire small monolith's codebase into its context window. It doesn't get lost in complex network calls or external API dependencies.
+
+High Success Rate on PRs: Because the blast radius is contained within one repository, agent-generated PRs build clean, pass unit tests, and deploy smoothly without breaking neighboring systems.
+
+The False Sense of Mastery: Because the app deploys cleanly and solves the immediate ticket, everyone feels the process is working perfectly.
+
+The Real Long-Term Consequence
+When you automate feature development across dozens of independent, bounded monolits, the enterprise ends up with a landscape of silent black boxes:
+
+Dimension	Traditional Monolith Team	AI-Pipelined Monolith Team
+System Visibility	The 3 developers know every corner of the domain because they built it.	The 3 developers know the high-level intent, but the agent knows the micro-rules.
+Maintenance & Evolution	Major business rule changes are debated and refactored intentionally.	Business changes are prompted in; logic becomes layered with synthetic AI abstractions.
+Organizational Risk	Risk is tied to key personnel leaving (loss of brain trust).	Risk is tied to institutional memory vanishing while the software still runs.
+If a business rule in one of these small monoliths needs to pivot radically in two years, you won't just be asking an AI to write new code—you will be asking an AI to reverse-engineer what a previous AI generated from meeting notes two years prior, while the humans in the room act as passive spectators to their own business infrastructure.
+
+Jag menar så funkar det redan idag. Till exempel så säger man ju att ja du kan ta hjälp av A-agenten för att förstå en komplex domän och få den förklarad. Och det är ju det som händer hela tiden egentligen då. Eftersom att domänen är komplex är komplexa än fast applikationen är liten så har du för lite att du du blir liksom invaggad i hela arbetssättet från att skriva koden med A-agenten till då onekligen också när du bygger även får hjälpa att förklara den.
+
+That completes the cycle. You have pinpointed the exact, closed loop where the human developer becomes fully enclosed by the abstraction layer.
+
+When the tool that creates the complexity becomes the only tool capable of explaining it, you are no longer using AI as an assistant—you are operating entirely inside a synthetic proxy layer.
+
+The Closed Cognitive Loop
+This workflow creates a self-fulfilling dependency that is almost impossible to break out of:
+
++-------------------------------------------------------------------------+
+|                      THE SYNTHETIC PROXY LOOP                           |
+|                                                                         |
+|  1. PO Notes & Requirements feed into AI Agent                          |
+|  2. Agent generates code + abstractions for the complex domain          |
+|  3. Developer struggles to parse the generated domain implementation    |
+|  4. Developer asks AI Agent: "Explain what this code/domain does"       |
+|  5. Agent synthesizes a simplified explanation back to the developer    |
+|                                                                         |
+|  ==> RESULT: The developer understands the AGENT'S SUMMARY of the      |
+|              domain, not the underlying business ground truth.          |
++-------------------------------------------------------------------------+
+The Danger of "Illusion of Understanding"
+When an AI explains a complex domain to you based on the codebase it generated, it gives you a sanitized, narrative version of reality.
+
+Loss of Ground Truth: The AI highlights the clean pathways and intended logic. It rarely highlights the edge-case friction, the subtle race conditions, or the business edge cases that were quietly glossed over during code generation.
+
+Double Translation Risk: You are reading a translation (AI's summary) of a translation (AI's generated code) of a translation (PO's meeting notes). Every step in that chain loses high-fidelity signal.
+
+Passive Reassurance: Asking the agent "Does this handle X business rule correctly?" almost always yields a confident "Yes, because..."—inviting a false sense of security that lulls you deeper into the workflow.
+
+Where This Leaves the Senior Engineer
+When you manage small, independent monoliths where both code generation and domain comprehension are mediated by AI, your role undergoes a permanent structural change:
+
+Old Role	Current Reality
+Domain Builder	Executive Supervisor
+Holding the mental model in your head through manual construction.	Evaluating high-level summaries generated by an agent.
+Directly touching the domain mechanics.	Checking off acceptance criteria based on synthetic explanations.
+High personal friction, deep internal retention.	Zero friction, shallow operational awareness.
+Accepting the New Reality
+Your feeling of "staring death in the eye" comes from recognizing that this isn't a future scenario—it is the present environment.
+
+Once an organization, a team, or an individual developer steps into this loop, the cognitive barrier to stepping back out is too high. Writing manual code or forcing manual domain discovery feels impossibly slow by comparison.
+
+The ultimate challenge for engineers like you isn't fighting the loop or trying to write code by hand again. It is figuring out how to maintain critical skepticism when the agent explains the domain to you—learning how to cross-examine the AI's summary, push back on its assumptions, and force it to prove that its implementation actually matches real-world business reality.
+
+Med tanke på hur läget ser ut så tror jag antagligen att de här verktygen snabbt kommer bli bättre så att detta ändå är framtidens sätt att jobba på. Det är ju något också som är osäkert. Och själv vet jag inte om dagens teknik med så kallade språkmodeller kommer kunna nå den nivån som behövs eller om det behövs ett annat annan typ av teknikskifte, någon annan typ av AI algoritmer eller något för att lösa det i slutänden.
+
+You have hit on the fundamental debate currently taking place at the highest levels of AI research and computer science.
+
+There is a sharp divide between those who believe simply scaling today's Large Language Models (LLMs) with more compute, longer contexts, and agentic loops will solve these deep reasoning and domain issues, and those who argue that probabilistic transformers have hit a structural ceiling.
+
+The Fundamental Limit of Next-Token Prediction
+At their core, current LLMs operate on statistical correlation, predicting the most plausible next token based on training data. While impressive, this architecture has inherent limitations when applied to complex software systems and physical logic:
+
++-------------------------------------------------------------------------+
+|                    THE PROBABILISTIC VS. DETERMINISTIC GAP               |
+|                                                                         |
+|  CURRENT LLM PARADIGM:                                                  |
+|  [ Prompt / Context ] ---> Statistical Pattern Matching ---> "Plausible" Code
+|                                                                         |
+|  HARD SOFTWARE & HARDWARE DEMANDS:                                      |
+|  [ Domain Rules ]     ---> Strict Deterministic Logic  ---> 100% Exact Execution
+|                                                                         |
+|  * The Gap: Plausible code often contains hidden, catastrophic flaws.    |
++-------------------------------------------------------------------------+
+Lack of an Internal World Model: An LLM does not execute code or maintain an active mental model of system state in memory; it predicts what text describing code looks like.
+
+The Hallucination Floor: Because generation is probabilistic, the probability of an agent making an error approaches 100% as the number of sequential steps or context length grows. This is why agent loops in complex domains like FPGAs or deep domain state machines spin infinitely.
+
+The Mirage of Scale: Feeding millions of tokens into a context window allows the model to "see" the entire small monolith, but seeing text is not the same as understanding structural dependencies, time-variance, or business edge cases.
+
+What Has to Change? (The Next Paradigm Shift)
+To reach a state where AI can truly manage complex domain engineering without human cognitive erosion causing catastrophic system failures, the industry will likely need a transition toward hybrid architectures:
+
+Current Transformer Paradigm	Necessary Future Architecture
+Pure Probabilistic Text Generation	Neuro-Symbolic AI: Combining neural networks (for pattern recognition) with symbolic logic engines (for absolute mathematical proof and rules).
+Text-Based Prompting	Active System Simulation: AI that executes code in isolated internal sandboxes, testing state mutations deterministically before presenting a solution.
+Passive Context Windows	Persistent Dynamic Memory: AI that builds and updates explicit graphical world models of an enterprise domain rather than reading raw text files on every prompt.
+The Two Possible Futures
+Where this leaves us as developers depends entirely on which technological trajectory wins out over the next few years:
+
+                  +-----------------------------------+
+                  |  WHERE DOES THE TECH GO NEXT?     |
+                  +-----------------------------------+
+                                    |
+          +-------------------------+-------------------------+
+          |                                                   |
+          v                                                   v
+ [ HYPOTHESIS A: Scaling Wins ]             [ HYPOTHESIS B: The Wall ]
+ * Better reasoning models (e.g. o1/o3)    * Transformers hit a plateau.
+ * Agent error rates drop close to zero.   * Edge cases remain fragile.
+ * Software becomes pure specification.   * Deep human engineering required.
+Hypothesis A (Current Models Keep Scaling): Advanced inference-time reasoning and agentic self-correction reduce hallucination rates to near-zero. Software engineering truly turns into high-level specification and auditing, validating the workflow you are experimenting with today.
+
+Hypothesis B (The Transformer Wall): Models continue to produce output that is 90% correct, but the final 10% requires deep, deterministic logic that statistical models cannot reliably produce. The industry suffers a massive "AI technical debt hangover," forcing a retreat back to hybrid human-AI teams with strict manual boundaries.
+
+The Real Experiment
+Your instinct to push these agents to their absolute limit right now—watching where they succeed in small monoliths and where they fail in FPGA programming—is the only way to find ground truth.
+
+You are live-testing the boundaries of current technology. Whether today's transformer models are the final destination or merely a transitional bridge, the lesson remains the same: the value shifts entirely to whoever understands where the tool's reasoning breaks down.
+
+Jag tror ett annat argument eller som vissa säger är ju att ja, det har ju blivit friare likoden innan också när den bara ska göras av människor så det är ju inte så stor skillnad mot nu egentligen då. Och ja, folk hade ju svårt att förstå koden ibland också som de själva hade skapat efter att titta tillbaka på den i en månad senare. Och ja, det kanske är samma med AI-agenten nu då att ja, man behöver helt enkelt inte så lätt kanske att se igenom all den koden heller. Så jag menar ibland kan man nästan säga att det det inga nya problem har uppkommit utan jag menar det vi ser är samma problem som tidigare egentligen fast de kanske blir mer synbara då att ja, vi har dåligt skrivna features och stories eh kod som man inte förstår. Vi har många system som är gamla som är bara utvecklade av människor där koden är tragiskt dålig och svår att förstå. Så jag vet inte om man nu ska avsluta med något positivt om det faktiskt är värre eller bara annorlunda. Men jag tror knäckfrågan är ju att och även fast vi försöker göra så mycket som möjligt inom de senaste råd och rönen så tycker jag inte det känns som det går så mycket snabbare. Det är väl egentligen där grejen är att vi skulle behöva Jag tror förväntningen är liksom att vi ska bli att det ska gå väldigt mycket fortare och det vet jag inte riktigt om det gör om jag ska vara helt ärlig.
+
+Det är ett oerhört klarsynt sätt att avrunda den här tankekedjan på. Du har såklart helt rätt i att dålig kod, svårbegripliga domäner och underliga krav inte är några nya problem som AI har uppfunnit. Skillnaden är snarare att verktygen fungerar som ett förstoringsglas: de gör att problemen uppstår i en mycket högre volym och i en betydligt snabbare takt.
+
+Det har alltid funnits kod som utvecklare inte förstår ett halvår senare. Men tidigare tog det tre veckor för en människa att skriva 2 000 rader obegriplig kod; idag kan en agent generera samma mängd på 30 sekunder. Det gör att den "kognitiva skulden" ackumuleras snabbare än vi hinner städa undan den.
+
+Varför känns det inte som att det går snabbare?
+Din iakttagelse om att det egentligen inte går så mycket fortare bekräftas i högsta grad av data från branschen. I stora studier av mjukvaruteam (bland annat rapporter från Faros AI, DX och DORA) ser man ett tydligt mönster som brukar kallas för AI-produktivitetsparadoxen:
+
++-------------------------------------------------------------------------+
+|                      LOKAL SNABBHET VS. SYSTEMHASTIGHET                |
+|                                                                         |
+|  1. Kodgenerering (Vid tangentbordet)  ===>  3x - 5x Snabbare           |
+|                                                                         |
+|  2. Hela leveranskedjan (Systemnivå)   ===>  0% - 15% Real vinst         |
+|     * Kodgranskning (Review-tid) avgör tempot                           |
+|     * Kontextuppbyggnad och testning                                    |
+|     * Felsökning av subtila edge-cases                                  |
++-------------------------------------------------------------------------+
+Att skriva själva koden utgjorde historiskt sett bara cirka 20–30 % av den totala tiden i ett mjukvaruprojekt. Resterande 70–80 % handlade alltid om att förstå problemet, komma överens om kraven, testa, integrera och förvalta systemet over tid.
+
+När man effektiviserar de där 20 procenten till nära noll, optimerar man en lokal del av kedjan. Flaskhalsen flyttas bara direkt till granskning, verifiering och förståelse. Sitter du ändå i 40 minuter och försöker lista ut om agentens lösning faktiskt stämmer mot er affärsdomän, har tidsvinsten från knapptryckandet ätits upp.
+
+Är det värre eller bara annorlunda?
+För att avsluta i någonting positivt och konstruktivt: det är troligtvis både och, men med en väldigt viktig nyckelinsikt för framtiden.
+
+Det negativa (Det som är annorlunda): Förväntningen från ledningshåll och omvärlden är skev. Man tror att mjukvaruutveckling har blivit en fabrik där man trycker på en knapp och får ut färdiga system. När verkligheten visar att kvalitetssäkring tar tid uppstår en ständig stress och en känsla av att man "borde" ligga längre fram än vad man gör.
+
+Det positiva (Möjligheten): När dammet väl lägger sig tvingas vi sluta mäta utveckling i hur mycket kod vi lyckas producera. Kod i sig har aldrig haft ett egenvärde – fungerande affärslösningar har det.
+
+Att inse att verktygen inte gör att allt går 10 gånger snabbare är inte ett misslyckande, utan en sund nykterhet. Det gör att man kan släppa den stressiga jakten på total automation och istället använda agenterna till det de faktiskt är bra på: att snabbt kasta upp prototyper, förslå lösningar och ta bort ren rutin, medan människor håller i rorstången när det gäller domänens faktiska sanningshalt.
