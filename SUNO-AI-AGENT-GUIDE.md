@@ -204,7 +204,7 @@ Melancholic indie pop, acoustic guitar, female lead, clean mix, mid-tempo 96 BPM
 
 ### Avoid
 - ❌ Vague prompts: "make a pop song"
-- ❌ Overloaded prompts: too many conflicting descriptors (3+ genres)
+- ⚠️ Conflicting descriptors: e.g. "aggressive" + "gentle", or a genre stack with no clear lead — put the main genre first (stacking many genres is fine to test, see [Genre Fusion](#genre-fusion))
 - ⚠️ Artist names: can pull generation strongly toward that artist's real catalog, overriding other descriptors in the same prompt — including in a reused instrument/style list not written with that artist in mind. Sometimes desirable, sometimes not — use deliberately, decide per-track. Also risks an outright generation block for copyright-flagged names (inconsistent, not a reliable list); intentionally misspelling the name is an unconfirmed workaround for that block, may stop working without notice
 - ❌ Missing vocal specification
 - ❌ Too complex: brand names, specific gear models
@@ -1444,23 +1444,16 @@ Every emotion starts as code
 [Tag: Glitch Beat with Orchestral Choir]
 ```
 
-### Genre Fusion Rules
+### Genre Fusion
 
-**Two genres max:** "Jazz Trap" or "Gospel Drill" works
-**Three or more:** Chaos and confusion
+**No hard limit on how many genres you stack.** The old "two genres max, three or more is chaos" rule is unverified community lore from the v4/v5 era, not something Suno has stated or anyone has measured. Any combination is worth testing — Styles.md is the pool to draw from, single genres and fusions alike.
 
-**Effective fusions:**
-- R&B Trap
-- Jazz House
-- Gospel Soul
-- Reggae Afrobeat
-- Lo-fi Hip Hop
-- Synthwave Pop
+**Working heuristics (hypotheses, not rules):**
+- **Order still reportedly matters:** Suno appears to weight early words more, so lead with the genre you want as the main identity and list supporting influences after it.
+- **One dominant identity helps when a stack comes out muddled** — a v6 community write-up (Reddit, Sept 2026, one person's testing in metalcore/post-hardcore/electronic-rock) reports good results with **one main musical identity + two or three supporting influences**, e.g. "modern metalcore, California skater pop-punk, emo-pop hooks, darkwave synth textures."
+- **If a fusion sounds like mush, shorten the stack or reorder it** before concluding the combination can't work — and per the [iteration principle](#key-principles-for-ai-agents), give it a few generations first, since one take doesn't diagnose a prompt.
 
-**Ineffective:**
-- "Funk Jazz Reggae Drumstep Gospel" (too many)
-
-**v6 refinement (unofficial community source — a Reddit prompting write-up, Sept 2026, self-described as personal-experience-only, not authoritative):** the author reports v6 specifically handles *more* genre layering than this rule implies, as long as one identity stays dominant — their working rule is **one main musical identity + two or three supporting influences** (e.g. "modern metalcore, California skater pop-punk, emo-pop hooks, darkwave synth textures" as one prompt). This is a step beyond the two-genre cap above; treat it as a v6-specific hypothesis to test per genre rather than a revision to the base rule, since it comes from one person's testing in metalcore/post-hardcore/electronic-rock territory specifically, not a general survey.
+**Two-genre fusions that are commonly reported to land easily** (starting points, not a ceiling): R&B Trap, Jazz House, Gospel Soul, Reggae Afrobeat, Lo-fi Hip Hop, Synthwave Pop.
 
 ### Genre Confidence Tiers
 
@@ -1733,7 +1726,7 @@ Replace with phonetic spellings if needed
 | Symptom | Cause | Fix | Additional Action |
 |---------|-------|-----|-------------------|
 | Output too generic | Vague descriptors | Add unique instrument + specific mood; increase Style Influence to 70-80 | Be more specific: "Spanish nylon guitar" not "guitar" |
-| Output too chaotic | Too many descriptors | Reduce to 4-7 descriptors; lower Weirdness to 35-45 | Put primary genre first |
+| Output too chaotic | Conflicting or unanchored descriptors | Put primary genre first; lower Weirdness to 35-45; trim or reorder the stack | Test a shorter version side by side |
 | Wrong genre blend | Genre order/conflict | Put primary genre first; remove conflicting descriptors | Use negative prompting |
 | Lyrics cut off mid-verse | Lines too long | Shorten to 4-6 words per line; break into smaller blocks (4-6 lines max) | Reduce total lyric length |
 | Mispronounced words | Homographs | Replace with phonetic spelling (see table) | Try different vocal persona |
