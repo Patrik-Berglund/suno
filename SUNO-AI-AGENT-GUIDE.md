@@ -338,6 +338,16 @@ The Song Editor allows section-level control without re-rolling the entire track
    - Add 1-2 bars before/after chorus
    - Smooth section changes
 
+### Lock-a-Take Workflow (Taming Non-Determinism)
+
+Every full generation re-rolls the whole song, even with identical input and Variety 0 — so the more you pile into one prompt, the harder it is to tell whether a change helped or you just got a lucky roll. This project's working approach (Sept 2026):
+
+1. **Get a good base take first.** Run a deliberately simple baseline prompt a few times, unchanged, until one take has the core right (intro, hook, drops — whatever the track lives on). Leave fragile, hard-to-prompt requests (tempo shifts, precise timing, specific motifs recurring later) *out* of the baseline.
+2. **Keep that take and stop re-rolling the whole song.** Everything you like about it is now fixed. A new full generation throws it away and starts from scratch.
+3. **Change one section at a time on the kept take.** Use v6 partial editing, or Remake/Extend in the Song Editor, on just the section you want to change. Each attempt is still random, but only inside that section; the rest stays as it was.
+
+**Why:** it narrows the randomness from the whole track down to one section at a time, and it gives fragile ideas (e.g. a real BPM change on the final drop, via Remake/Extend with a different BPM in the prompt) a fair test without risking the parts that already work. This is the general form of the chorus-first [Lock-First Protocol](#lock-first-protocol-professional-workflow) above: lock whatever works, experiment on the rest.
+
 ### Standard Section Map
 ```
 [INTRO 4] [VERSE 1 8] [PRE 4] [CHORUS 8]
@@ -1917,7 +1927,7 @@ Every prompt/lyric response must end with a list of 5–8 suggested song titles 
 12. **For uploads:** State BPM/key explicitly; set Audio Influence appropriately
 13. **Multilingual:** One language per section; add "no English" if needed
 14. **Export strategy:** Fix arrangement in Suno, tone/EQ in DAW
-15. **Iterate:** Suno is non-deterministic — the same prompt produces different results each time. Real-world workflow on this project: generate the *same unchanged prompt* 3 times first to sample the variance before touching anything, then start making small tweaks if none of those 3 land — landing a take that actually works often takes 5-10 generations total between the unchanged batch and the tweaked follow-ups. Don't conclude a prompt "doesn't work" from a single generation, or even from one changed variant — the prompt is only one input; the roll is the other.
+15. **Iterate:** Suno is non-deterministic — the same prompt produces different results each time. Real-world workflow on this project: generate the *same unchanged prompt* 3 times first to sample the variance before touching anything, then start making small tweaks if none of those 3 land — landing a take that actually works often takes 5-10 generations total between the unchanged batch and the tweaked follow-ups. Don't conclude a prompt "doesn't work" from a single generation, or even from one changed variant — the prompt is only one input; the roll is the other. Once a take lands, stop re-rolling the whole song and edit it section by section instead — see [Lock-a-Take Workflow](#lock-a-take-workflow-taming-non-determinism).
 
 ---
 
