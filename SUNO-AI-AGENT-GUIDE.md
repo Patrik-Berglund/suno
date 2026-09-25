@@ -29,6 +29,7 @@ Sourced from Suno's official v6 blog post ("Introducing v6"), help center FAQ, a
 
 **New/changed controls:**
 - **Variety slider** — **confirmed mechanism, quoting Suno's own V6 FAQ (relayed via a third-party writeup that quotes it verbatim, so treat the quote itself as first-party, the writeup's interpretation around it as community-tier):** Variety works by "adjusting and updating your style prompts" — it literally rewrites/expands the text of your style field before generation, and setting it to 0 lets you "retain full control of your style tags." That's a sharper, more mechanical claim than "explores different directions" (from the official tutorial video, [above](#suno-v6-model-variants--new-capabilities)) — the two aren't necessarily contradictory (rewriting the prompt is plausibly *how* two takes end up diverging), but the practical implication is bigger than it first looked: at any Variety above 0, Suno may rewrite a style prompt you spent real time crafting before it ever generates. If you're doing careful keyword-formula or narrative-prose prompting per this guide, **set Variety to 0** or the model may not be reading the prompt you wrote. "Normal" is the default for v6/v6-mini. If **My Taste**/Personalize is enabled, Variety can also pull on your taste profile — but turning Personalize *off* does **not** stop Variety from rewriting; they're separate controls, and community reports describe users assuming otherwise and being wrong.
+- **First-party confirmation of the rewrite mechanism (this project, Sept 2026) — directly observed in the UI, not inferred:** the user can see the actual rewritten style text Suno produces at Variety >0, and it doesn't just reorder your existing words — it swaps in new descriptors that weren't in your prompt and drops some that were. This is stronger evidence than a round-trip audio re-upload/auto-caption diff (below), since it's the literal rewritten prompt text, not a reconstruction from the audio — and it's a direct, concrete confirmation of the FAQ's "adjusting and updating your style prompts" language at the content level, not just a word-order shuffle. Practical implication: at Variety >0, treat your style field as a *starting point* Suno edits, not the literal text it generates from — don't assume a descriptor survived just because you wrote it, don't assume an unwanted element in the output came from a bad prompt rather than a swapped-in addition, and check the actual rewritten style text in the UI after generating rather than guessing. Variety 0 remains the only way to guarantee the literal text you wrote is what's used.
 - **Confirmed: Weirdness and Style Influence still exist as separate sliders alongside Variety on v6** — the [Creative Control Sliders](#creative-control-sliders) section below still applies. Community-reported pairing for **obedience** (reproduce exactly what you asked for): Variety 0, Weirdness low (~20), Style Influence high (~75-85) — note V6 is reported to obey a given Style Influence value more literally than v5.5 did, so you may not need to push it as high as old habits suggest. Community-reported pairing for **surprise** (chase the old models' unpredictability): Weirdness high, Style Influence loose, Variety above 0, ideally on **v6-wild** rather than flagship v6. **Confirmed to do nothing:** typing slider values as text into the style field ("weirdness 20%, style influence 80%") — the sliders are a separate UI control under Advanced Options; words in the style field are just words to the model, and several viral prompt templates that include this are just carrying dead text.
 - **Max Mode** — optional paid add-on (extra credits). **Confirmed use case (official tutorial + Suno FAQ):** most relevant when the song has an audio influence (a cover, or a custom voice) — it reduces stylistic/vocal *drift* as the track progresses, especially past the 2-minute mark, and helps keep the musical style consistent as the song develops. It is a switch, not a slider, and doesn't fix a rewritten prompt or a bad arrangement — reach for it on the take you intend to keep, not while exploring.
 
@@ -174,7 +175,7 @@ Melancholic indie pop, acoustic guitar, female lead, clean mix, mid-tempo 96 BPM
 ## Prompt Construction Rules
 
 ### Always Include
-1. **Vocal type:** male/female/falsetto/choir/duet (or "instrumental only, no vocals")
+1. **Vocal type:** male/female/falsetto/choir/duet (or instrumental — Instrumental toggle + `vocals` in the Exclude field)
 2. **1-2 hero instruments:** acoustic guitar, Rhodes piano, 808s, brass section
 3. **Mood + genre:** melancholic indie pop, aggressive trap, dreamy synthwave
 4. **Tempo:** BPM number or descriptor (slow pocket, mid-tempo, driving)
@@ -213,7 +214,7 @@ Melancholic indie pop, acoustic guitar, female lead, clean mix, mid-tempo 96 BPM
 
 ## Creative Control Sliders
 
-Sliders shape *how* the model interprets your text prompt, not *what* to generate. Mental model: the Style/Lyrics prompt defines the vocabulary; the sliders define the grammar — the same "jazz" prompt at low Weirdness produces a conventional jazz standard, at high Weirdness produces jazz that breaks its own conventions. Available in Custom Mode below the Lyrics field (V4.5+ through v5.5, **confirmed still present on v6**). v6 adds a third slider, Variety, alongside these two rather than replacing them — Variety controls how far the two generated takes diverge from *each other*, not the conventionality of any one take. See [Suno v6: Model Variants & New Capabilities](#suno-v6-model-variants--new-capabilities).
+Sliders shape *how* the model interprets your text prompt, not *what* to generate. Mental model: the Style/Lyrics prompt defines the vocabulary; the sliders define the grammar — the same "jazz" prompt at low Weirdness produces a conventional jazz standard, at high Weirdness produces jazz that breaks its own conventions. Available in Custom Mode below the Lyrics field (V4.5+ through v5.5, **confirmed still present on v6**). v6 adds a third slider, Variety, alongside these two rather than replacing them — Variety rewrites your style text before generation (confirmed; this is also plausibly why the two takes diverge from each other), rather than changing how conventionally the model reads a fixed prompt. Keep it at 0 whenever the exact wording of your style field matters. See [Suno v6: Model Variants & New Capabilities](#suno-v6-model-variants--new-capabilities).
 
 **Unconfirmed mechanism hypothesis:** Weirdness plausibly works like a sampling-probability control — low values favor the most probable next musical event at each step (conventional, predictable), high values let lower-probability events through more often (surprising, less coherent). Suno hasn't documented the actual mechanism; treat this as a hypothesis, not fact, same as other internals claims in this guide.
 
@@ -1530,10 +1531,11 @@ Include this in your narrative arc description for better dynamics.
 
 ### Instrumental-Only Best Practices
 
-For pure instrumentals, be explicit:
+For pure instrumentals, be explicit — Instrumental toggle on, `vocals` in the Exclude field (see [Instrumental Tracks](#instrumental-tracks-no-vocals)), and describe the arrangement per section:
 
 ```
-Style: Melodic techno, 126 BPM, deep analog bass, ethereal pads, progressive structure, studio-grade clean mix, no vocals, instrumental only
+Style: Melodic techno, 126 BPM, deep analog bass, ethereal pads, progressive structure, studio-grade clean mix, instrumental
+Exclude: vocals
 
 Lyrics:
 [Intro]
@@ -1625,7 +1627,8 @@ Orchestral score, string ostinatos, brass swells, taiko hits, massive dynamics, 
 
 ### Tech House / EDM
 ```
-Tech House, energetic, 128 BPM, drum machine, electric piano, punchy kicks, synth pads, 4/4 time, club-ready mix, no vocals
+Tech House, energetic, 128 BPM, drum machine, electric piano, punchy kicks, synth pads, 4/4 time, club-ready mix, instrumental
+Exclude: vocals
 ```
 
 ### UK Drill
@@ -1645,7 +1648,8 @@ Liquid Drum and Bass, melodic, 174 BPM, breakbeat drums, deep sub-bass, lush pad
 
 ### Synthwave
 ```
-Synthwave, nostalgic, 120 BPM, analog synths, gated drums, arpeggiators, retro bass, cinematic pads, 80s production, no vocals
+Synthwave, nostalgic, 120 BPM, analog synths, gated drums, arpeggiators, retro bass, cinematic pads, 80s production, instrumental
+Exclude: vocals
 ```
 
 ---
@@ -1671,14 +1675,20 @@ Ask user:
 ```
 
 ### Step 4: Set Sliders
+Sliders apply to the whole generation, not per section. For a full-song generation:
+- **Variety: 0** — otherwise Suno rewrites the style text you just built
+- Weirdness and Style Influence per the [v6 starting recipe](#suno-v6-model-variants--new-capabilities) (obedience: Weirdness under 50, Style Influence 80-95), then adjust from what you hear
+
+Per-section values only come into play when you Remake a single section in the Song Editor (see [Lock-First Protocol](#lock-first-protocol-professional-workflow)):
 - Chorus/Hook: Weirdness ↓ (35-45), Style ↑ (70-85)
 - Verse: Weirdness mid (40-55), Style mid (55-70)
 - Bridge: Weirdness ↑ (55-70), Style mid (45-60)
 
 ### Step 5: Add Exclusions (if needed)
-- Instrumental? → "no vocals"
-- Avoid specific instrument? → "no [instrument]"
-- Clear muddy mix? → "no synth pads" or "no rhythm guitar"
+Use the **Exclude field**, not "no X" in the style field (see [Negative Prompting](#negative-prompting-exclusions)):
+- Instrumental? → Instrumental toggle + `[Instrumental]` tag + Exclude: `vocals`
+- Avoid specific instrument? → Exclude: `[instrument]`
+- Clear muddy mix? → Exclude: `synth pads` or `rhythm guitar`
 
 ---
 
@@ -1782,7 +1792,7 @@ Replace with phonetic spellings if needed
 ## Quick Checklist
 
 ### Before Generating
-- [ ] Vocal type specified (or "no vocals")
+- [ ] Vocal type specified (or Instrumental toggle + Exclude: vocals)
 - [ ] 1-2 hero instruments named
 - [ ] Mood + genre clear
 - [ ] Tempo set (BPM or descriptor)
@@ -1792,7 +1802,8 @@ Replace with phonetic spellings if needed
 - [ ] Lyrics: 4-6 lines per section
 - [ ] Lyrics: structure tags present
 - [ ] Lyrics: checked for homographs
-- [ ] Sliders set for section type
+- [ ] Variety at 0 (unless deliberately letting Suno rewrite the style)
+- [ ] Unwanted elements in the Exclude field, not as "no X" in the style field
 
 ### Pre-Export QA
 - [ ] Chorus repeats identically; no drift
@@ -1907,8 +1918,8 @@ Every prompt/lyric response must end with a list of 5–8 suggested song titles 
 6. **Lyrics: 4-6 lines per section** maximum
 7. **Check for homographs:** read, live, lead, bass, tear, wind
 8. **Add performance tags** for dynamic delivery
-9. **Set sliders by section type:** Chorus (conservative), Bridge (experimental)
-10. **Use negative prompting** to exclude unwanted elements
+9. **Variety 0 by default;** per-section slider values (Chorus conservative, Bridge experimental) apply only when Remaking a single section
+10. **Use the Exclude field** for unwanted elements, not "no X" in the style field
 11. **Lock chorus first** in Song Editor workflow
 12. **For uploads:** State BPM/key explicitly; set Audio Influence appropriately
 13. **Multilingual:** One language per section; add "no English" if needed
@@ -1922,10 +1933,10 @@ Every prompt/lyric response must end with a list of 5–8 suggested song titles 
 - **Treat Suno like a producer:** Give clear direction, not vague inspiration
 - **Simple structure > complex chaos:** Clear sections beat overloaded prompts
 - **Strong keywords > generic descriptions:** "Spanish nylon guitar" beats "guitar"
-- **v5 advantages:** Use Song Editor for section control, Audio Uploads for collaboration, Stems for DAW finishing
+- **v6 tools:** Use Song Editor for section control, Audio Uploads for collaboration, Stems for DAW finishing
 - **Lock-first workflow:** Perfect the chorus, then build around it
 - **Production quality matters:** Always include quality descriptors for consistency
 - **Iterate fast:** Test variations, use sliders strategically
 - **Generate multiple takes:** non-deterministic model — expect 5-10 generations per track to land the one that actually works, not 2-3; pick best, refine in Song Editor
 
-This guide prioritizes actionable prompt construction and v5 production workflows. Focus on helping users craft precise, effective prompts, leverage v5 features, and achieve professional results.
+This guide prioritizes actionable prompt construction and v6 production workflows. Focus on helping users craft precise, effective prompts, leverage v6 features, and achieve professional results.
